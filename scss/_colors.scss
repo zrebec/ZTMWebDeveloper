@@ -1,0 +1,8 @@
+@mixin body-colors {
+    background-color: $page-bg;
+    color: $page-fg;
+}
+
+@mixin title-colors {
+    color: orange;
+}
