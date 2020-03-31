@@ -8,13 +8,13 @@ html, body {
 }
 
 body {
-    @include body-colors;
-    @include body-typography;
+    @include colors-body;
+    @include typography-body;
     
 }
 
 h1 {
     margin: 0; padding: 0;
-    @include title-colors;
-    @include title-typography;
+    @include colors-title;
+    @include typography-title;
 }
