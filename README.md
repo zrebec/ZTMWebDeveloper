@@ -14,7 +14,7 @@ Common channels:
 - #js - For all questions javascript
 - #dev-resources - Myself and others share interesting articles and tools we find. Great way to stay up to date in the
 industry
-- #alumni - Ask graduates of this course questions
+- #alumni - Ask graduates about this course questions
 - #womenintech - For the female coders out there
 - #job-hunting - Anything related to finding a job as a developer
 - #code100 - To join a community of students dedicated to code every day for 100 days. You can join anytime.
@@ -53,12 +53,12 @@ maximum timeout by ```-w``` option
 ### How we can speed loading web site from far server
 
 - General is minimize the code (like ```.min.css``` versions)
-- Hosting the separate scripts on nearer server (like css, javascript or some
+- Hosting the separate scripts on nearby server (like css, javascript or some
 parts of web pages)
 - Custom mirroring (expensive)
 - Using service like cloudflare
-- Using modern HTML elements like ```<picture>``` for smaller images on smaller
-devices (usually more than 80% daily internet users using a smartphone for
+- Using modern HTML elements like ```<picture>``` for smaller images on small
+devices (usually more than 80% daily internet users using a smartphone for internet
 browsing)
 
 ### Epilogue
@@ -75,9 +75,9 @@ Author of World Wide Web: **Sir Tim Berners-Lee** in 1989
 
 The good history lesson is on <https://www.vox.com/a/internet-maps>
 
-In the past every internet page (every computer) has own IP address and you must known the IP address.
+In the past every internet page (every computer) had only it's IP address and you had to know known the respective IP address.
 Sir **Tim Berners-Lee** arrives with World Wide Web (www) which means that whole page works under www roof.
-He created the first web page also (server and www page)
+He created the first web page as well (server and www page).
 
 >The first website was in 1991 and the copy of that is on <info.cern.ch/hypertext/WWW/TheProject.html>
 
@@ -89,10 +89,10 @@ He created the first web page also (server and www page)
 
 ### Developer Fundamentals
 
-We have many web browsers and devices (like notebooks, tablets or mobile phones) today and each of one must process
-HTML, CSS and Javascript files to desired result. That's the reason why are some basics fundamentals are very important
-of web development. The absolute elementary basic is the testing your website on each device. Web browsers can helps
-with it too because they are offers simulating of mobile devices, different screen resolutions, etc...
+We have many devices to browse the internet (like notebooks, tablets or mobile phones) today and each of one must process
+HTML, CSS and Javascript files to desired result. That's the reason why are fundamentals of web developmentvery important.
+The cornerstone of it is the testing your website on each individual device. 
+Web browsers can help with it as well because they can offer simulated mobile devices, different screen resolutions, etc...
 
 ### More resources
 
