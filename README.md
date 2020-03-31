@@ -191,7 +191,7 @@ So, the right example of code above should be:
 <p><strong>Lorem ipsum</strong> is is simply dummy text of the <em>printing</em>...</p>
 ```
 
-```<ol>`` is ordered list
+```<ol>``` is ordered list
 
 ```html
 <ol>
