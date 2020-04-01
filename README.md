@@ -276,4 +276,4 @@ We can try add some free image into our restaurant page
 I added ```width``` attribute becuase original logo is too large and ```style``` with ```float``` because I want text
 next to the image and not under the image (this can be explained later).
 
-![local cuisine logo](https://imgur.com/bK5H5VA "Local cuisine logo")
+![local cuisine logo](https://i.imgur.com/bK5H5VA.png "Local cuisine logo")
