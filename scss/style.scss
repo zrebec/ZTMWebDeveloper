@@ -18,3 +18,7 @@ h1 {
     @include colors-title;
     @include typography-title;
 }
+
+a, a.visited {
+    @include colors-anchor;
+}

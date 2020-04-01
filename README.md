@@ -90,8 +90,8 @@ He created the first web page as well (server and www page).
 ### Developer Fundamentals
 
 We have many devices to browse the internet (like notebooks, tablets or mobile phones) today and each of one must process
-HTML, CSS and Javascript files to desired result. That's the reason why are fundamentals of web developmentvery important.
-The cornerstone of it is the testing your website on each individual device. 
+HTML, CSS and Javascript files to desired result. That's the reason why are fundamentals of web developmentally important.
+The cornerstone of it is the testing your website on each individual device.
 Web browsers can help with it as well because they can offer simulated mobile devices, different screen resolutions, etc...
 
 ### More resources
@@ -176,7 +176,7 @@ text is indented of another part of your document.
 first strophe of *lorem ipsum* text (dummy text as replacement of real content). Look here <https://lipsum.com/>.
 You can find a many languages for test of your character set for example.
 
-```<b>``` is for **bold text** and ```<i>``` is for italic text 
+```<b>``` is for **bold text** and ```<i>``` is for italic text  
 
 Example
 
@@ -261,7 +261,8 @@ In **XHTML** which I mentioned above you must should write this tags like ```<br
 The basic tag for image is ```<img>``` in most **HTML** versions (in **HTML5** too sure).  
 The more about ```img``` you can find in: <https://www.w3schools.com/tags/tag_img.asp>  
 Very important attributes are ```src``` what is source where HTML server can find the image and description for image
-as ```alt``` attribute.
+as ```alt``` attribute. This attributes is important when browser cannot display the image (broken link e.g.), if
+your browser doesn't support images (like **lynx** in linux) and it's important for text-readers as well.
 
 We can try add some free image into our restaurant page
 
@@ -273,7 +274,58 @@ We can try add some free image into our restaurant page
 <p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
 ```
 
-I added ```width``` attribute becuase original logo is too large and ```style``` with ```float``` because I want text
-next to the image and not under the image (this can be explained later).
+I added ```width``` attribute because original logo is too large and ```style``` with ```float``` because I want text
+next to the image and not under the image (this can be explained later).  
+For the specify size of image you can use **CSS styles** as well or you can add ```height``` attribute is you want some
+special proportionals of image. But it's enough to leave ```width``` then image is height is corrected for keep image
+proportions.
 
 ![local cuisine logo](https://i.imgur.com/bK5H5VA.png "Local cuisine logo")
+
+#### Anchors
+
+Anchors are reference links to another website (usually another part of our website)  
+Basic structure:
+
+```<a href="link to other document" >```
+
+Make our logo clickable for return to main page (usually index.html)
+
+```html
+ <a href="index.html">
+    <img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
+    width="64" style="float:left;">
+</a>
+<h1>Welcome to our local restaurant</h1>
+```
+
+You can use **hashtag** if you want link to some part in same document. For example if you have long document like some
+license you can add **hashtags** for to start of page and links to chapters.  
+Example in our restaurant:
+
+```html
+<h1>Welcome to our local restaurant</h1>
+<hr>
+<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+<a href="#appetizer">Appetizers</a> |
+<a href="#soup">Soups</a> |
+<a href="#drinks">Drinks</a>
+<h2>Our meals with ingredients</h2>
+```
+
+In anchors you can set ```target``` attribute if you want open the new document in new window for example. Then anchor
+will look like ```<a href="index.html/new_document" target="_blank">```
+
+#### Relative vs Absolute path
+
+In anchors you can use **relative** or **absolute** paths. Relative means that you targeting in some html file which is
+in your directory on server where you have main file (mostly is it ```index.html``` because most server are
+pre-configured) for this file as basic page. Like in our previous example we redirecting our ```index.html``` if you
+click on the logo which is relative path. And our logo in ```img``` tag has ```https://cdn.pixabay.com...``` which is
+absolute path. That means the absolute path contains full path to document including the server and relative path
+doesn't. As homework you can re-write our anchor on logo of restaurant to absolute path. (hint: don't forget to server
+name and document name.)
+
+## Section 5: Advanced HTML5
+
+### Forms

@@ -16,3 +16,7 @@ h1 {
   color: orange;
   font-family: "Roboto", sans-serif;
 }
+
+a, a.visited {
+  color: orange;
+}
