@@ -215,7 +215,7 @@ or you can combine it!
 
 ```html
 <h1>Welcome to our local restaurant</h1>
-<p>Local cousine with <em>simple</em> but <strong>quality</strong> meals.</p>
+<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
 
 <h2>Our meals with ingredients</h2>
 <ol>
@@ -241,3 +241,39 @@ or you can combine it!
     </ul>
 </ol>
 ```
+
+#### Closing tags
+
+Closing tags usually closing with backslash and name the tag. But some tags has no closing tag. It's called non-pairing
+tags. For example ```<br>``` which is **break line** or ```<hr>``` for example which is **horizontal line**. So, add
+after the title of your restaurant one **horizontal line**. In **XHTML**
+
+```html
+<h1>Welcome to our local restaurant</h1>
+<hr>
+<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+```
+
+In **XHTML** which I mentioned above you must should write this tags like ```<br />``` or ```<hr />```.
+
+#### Images
+
+The basic tag for image is ```<img>``` in most **HTML** versions (in **HTML5** too sure).  
+The more about ```img``` you can find in: <https://www.w3schools.com/tags/tag_img.asp>  
+Very important attributes are ```src``` what is source where HTML server can find the image and description for image
+as ```alt``` attribute.
+
+We can try add some free image into our restaurant page
+
+```html
+<img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
+        width="64" style="float:left;">
+<h1>Welcome to our local restaurant</h1>
+<hr>
+<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+```
+
+I added ```width``` attribute becuase original logo is too large and ```style``` with ```float``` because I want text
+next to the image and not under the image (this can be explained later).
+
+![local cuisine logo](https://imgur.com/bK5H5VA "Local cuisine logo")
