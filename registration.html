@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <title>Registration Form</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
+            width="64" style="float:left;">
+        </a>
+        <h1>Be our employer</h1>
+        <hr>
+        <br>
+    </header>
+    <main>
+        <form action="registration.html" method="GET">
+        <div class="form-text"><label>First Name: </label><input type="text" name="first_name" required></div>
+        <div class="form-text"><label>Last Name: </label><input type="text" name="last_name" required></div>
+        <div class="form-text"><label>Email: </label><input type="email" name="email" required></div>
+        <div class="form-text"><label>Password: </label><input type="password" name="password" required
+            minlength="8"></div>
+        <div class="form-text"><label>Repeat Password: </label><input type="password" name="repeat_password" required
+            minlength="8"></div>
+        <div class="form-text"><label>birthday: </label><input type="number" name="birthday" min="15" max="120"></div>
+        <div class="form-text"><label>Favorite drinks from our restaurant: </label>
+            <input type="checkbox" name="favorite_drink" value="orange_juice"> Orange juice
+            <input type="checkbox" name="favorite_drink" value="vanilla_milkshake"> Vanilla Milkshake
+            <input type="checkbox" name="favorite_drink" value="strawberry_milkshake"> Strawberry Milkshake
+            <input type="checkbox" name="favorite_drink" value="sparkling_water"> Sparkling water
+            <input type="checkbox" name="favorite_drink" value="clear_water"> Clear water
+        </div>
+        <div class="form-text"><label>What we should add to our menu?</label>
+            <select name="recommended_improvements">
+                <option value="burger">Burger</option>
+                <option value="chinese_soup">Chinese soup</option>
+                <option value="waffles">Waffles</option>
+            </select>
+        </div>
+        </div>
+        <div class="form-text"><label>How often visiting your restaurant? </label>
+            <input type="radio" name="visiting" value="almost_never"> Almost Never
+            <input type="radio" name="visiting" value="occasionally"> Occasionally
+            <input type="radio" name="visiting" value="once_at_week"> Once at week
+            <input type="radio" name="visiting" value="two_or_more_per_week"> Two or more times in week
+        </div>
+        <div class="form-text"><input type="reset" value="Reset"> | <input type="submit" value="Register"></div>
+    </form>
+</main>
+<footer>
+    &copy;2020 - Website created with love!
+</footer>
+
+</body>
+</html>

@@ -176,7 +176,15 @@ text is indented of another part of your document.
 first strophe of *lorem ipsum* text (dummy text as replacement of real content). Look here <https://lipsum.com/>.
 You can find a many languages for test of your character set for example.
 
-```<b>``` is for **bold text** and ```<i>``` is for italic text  
+#### Few more HTML text formatting tags
+
+- ```<b>``` is for **bold text**.
+- ```<i>``` is for *italic text*.
+- ```<mark>``` for highlight text.
+- ```<del>``` is for strikeout the text.
+- ```<q>``` is for "Quotation text".
+- ```<blockquote cite="link">Quoted text</blockquote>``` for quote citation text
+- ```<bdo dir="rtl">Right to left text</bdo>``` for right to left text orientation
 
 Example
 
@@ -241,6 +249,8 @@ or you can combine it!
     </ul>
 </ol>
 ```
+
+>For highlight text you shall use ```<mark>Highlight text</mark>``` tag (not shown above, but please, remember it!)
 
 #### Closing tags
 
@@ -326,6 +336,180 @@ absolute path. That means the absolute path contains full path to document inclu
 doesn't. As homework you can re-write our anchor on logo of restaurant to absolute path. (hint: don't forget to server
 name and document name.)
 
+#### Exercises and more resources
+
+If you want text of your HTML skill you shall visit <https://www.w3schools.com/html/html_quiz.asp>  
+For training a more skill try advanced exercises in <https://www.w3schools.com/html/exercise.asp>
+
+If you need more information about HTML tags the resource is
+<https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5>
+
 ## Section 5: Advanced HTML5
 
 ### Forms
+
+As usually you can find lot of help in <https://www.w3schools.com/tags/tag_form.asp>
+
+The basic tag is ```form```. You can use a many inputs under form. Usually are used in ```input``` tag witch types like
+```text```, ```password```, ```email```, ```date``` or ```submit``` (for send the form) as ```type``` attribute.  
+You can also set minim and maximum length of each field by set ```minlength``` and ```maxlength``` attribute.  
+If you want to use that some field must be required (not empty) you do it with ```required``` attribute.  
+To select from pickup list you can do it by ```select``` tag. To allow select multiple values you can use ```multiple```
+attribute.
+
+Let's do it small registration form for our restaurant:
+
+```html
+<form action="/registration.html">
+    <div><label>First Name: </label><input type="text" name="first_name" required></div>
+    <div><label>Last Name: </label><input type="text" name="last_name" required></div>
+    <div><label>Email: </label><input type="email" name="email" required></div>
+    <div><label>Password: </label><input type="password" name="password" required
+        minlength="8"></div>
+    <div><label>Repeat Password: </label><input type="password" name="repeat_password" required
+        minlength="8"></div>
+    <div><label>birthday: </label><input type="date" name="birthday"></div>
+    <div><label>Favorite drinks from our restaurant: </label>
+        <input type="checkbox" name="favorite_drink" value="orange_juice"> Orange juice
+        <input type="checkbox" name="favorite_drink" value="vanilla_milkshake"> Vanilla Milkshake
+        <input type="checkbox" name="favorite_drink" value="strawberry_milkshake"> Strawberry Milkshake
+        <input type="checkbox" name="favorite_drink" value="sparkling_water"> Sparkling water
+        <input type="checkbox" name="favorite_drink" value="clear_water"> Clear water
+    </div>
+    <div><label>What we should add to our menu?</label>
+        <select name="recommended_improvements">
+            <option value="burger">Burger</option>
+            <option value="chinese_soup">Chinese soup</option>
+            <option value="waffles">Waffles</option>
+        </select>
+    </div>
+    </div>
+    <div><label>How often visiting your restaurant? </label>
+        <input type="radio" name="visiting" value="almost_never"> Almost Never
+        <input type="radio" name="visiting" value="occasionally"> Occasionally
+        <input type="radio" name="visiting" value="once_at_week"> Once at week
+        <input type="radio" name="visiting" value="two_or_more_per_week"> Two or more times in week
+    </div>
+    <div><input type="reset" value="Reset"> | <input type="submit" value="Register"></div>
+</form>
+```
+
+Uh, it's a bit long, yeah? Don't worry. It's easier as it looks. As you can see the most tags in form are ```input```.  
+With ```label``` you can enclosing your field name. It's usually recommended. You can see that **First Name**,
+**Last Name**, **Email** and **Password** are ```required```.  
+Birthday is not required but you can see what age range registering to your restaurant. If value of ```type``` is email,
+browser supporting HTML5 display mini calendar.  
+```checkbox``` type with common name and different values allows you to select more values in one section. Instead of
+```checkbox``` is ```radio``` which allow you only one value.  
+The last used tag is ```select``` for select how our customers wants improve our restaurant. Of course, you can add
+```multiple``` but we don't want it because we want to see what customers most wants.  
+```input``` with type ```reset``` reset your form and with ```submit``` submit your form.
+
+>Please remember that ```name``` is very important in each input field. ```value``` is very important as well specially
+in radio buttons, checkboxes or pick-lists.
+
+So, let fill our form:
+
+![Registration form](https://i.imgur.com/N9DcIsy.png "Registration form")
+
+After click on **Register** button you can see a so long URL like:
+
+```output
+registration.html?first_name=First&last_name=Last&email=firstlast%40fakeemail.info&password=strongpassword&repeat_password=strongpassword&birthday=2020-04-02&favorite_drink=vanilla_milkshake&favorite_drink=strawberry_milkshake&recommended_improvements=waffles&visiting=occasionally
+```
+
+Let's get started with parsing. The first parameter in any **URL** is after ```?```. All others are after ```&```. If we
+want parse this form, we can make a new line after **?** and then after every **&**.
+
+```output
+?first_name=First
+&last_name=Last
+&email=firstlast%40fakeemail.info
+&password=strongpassword
+&repeat_password=strongpassword
+&birthday=2020-04-02
+&favorite_drink=vanilla_milkshake
+&favorite_drink=strawberry_milkshake
+&recommended_improvements=waffles
+&visiting=occasionally
+```
+
+As you can see it's easy. Every value what we fill in form are now in our URL with your as well. The most used and
+**strong recommended** method is submit the form as **POST** method! You can do that with add ```method="POST"``` in our
+```form``` tag. Try it and you will see that your url will ends with **registration.html**. This is also called
+**backend** method.
+
+#### Input restrictions
+
+Some attributes are allowed only in HTML5 but then you can have richer document. Look at this webpage:
+<https://www.w3schools.com/html/html_form_input_types.asp>. There are listed restrictions for HTML5 and for older HTML
+as well. For example ```min``` and ```max``` value are new HTML5 and allows you set a number range in our form.
+
+For example, we don't need a full birthday of us customer, it's enough known his age. Replace the ```Birthday``` input
+with ```number``` instead of ```date``` and set minimum value 15 years and maximum value 120 years.
+
+```html
+<label>birthday: </label><input type="number" name="birthday" min="15" max="120">
+```
+
+Try register and value lower than 15 or higher than 120. You should see error message.
+
+### Few more HTML tags
+
+For comment in your HTML you should use ```<!-- Comment -->```. Try add some comments to your registration form for
+better orientation.
+
+```<div>``` and ```<span>``` are for separating sections. ```<div>``` break line after end (after ```</div>```) and
+```<span>``` is usually using for CSS styles. The difference is ```<div>``` is **block** tag and ```<span>``` is inline
+tag which means that content will continue in same line after end of span.
+
+But don't worry with this elements now, in later we will use CSS styles for form formatting.
+
+### HTML vs HTML5
+
+The basic concepts of HTML5 is more tags like ```nav```, ```article```, ```header```, ```footer``` for layout of your
+document. It's the big evolution of classic HTML.
+
+Let's get quick look of HTML5 features:
+
+```<article>``` - specifies independent, self-contained content.  
+```<aside>``` - defines some content aside from the content it is placed in.  
+```<figcaption>``` - defines a caption for a ```<figure>``` element.  
+```<figure>``` - specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.  
+```<footer>``` - defines a footer for a document or section.  
+```<header>``` -  element represents a container for introductory content or a set of navigational links.  
+```<main>``` - specifies the main content of a document.  
+```<mark>``` - defines marked text.  
+```<nav>``` - defines a set of navigation links.  
+```<section>``` - defines sections in a document, such as chapters, headers, footers, or any other sections of the
+document.  
+```<summary>``` - defines a visible heading for the ```<details>``` element. The heading can be clicked to view/hide
+the details.  
+```<time>``` - tag defines a human-readable date/time.  
+```<audio>``` - playing audio file (usually .wav format) Look here for more info:
+<https://www.w3schools.com/html/html5_audio.asp>  
+```<video>``` - play video files (for use look here: <https://www.w3schools.com/html/html5_video.asp>).
+
+All of this tag and layout of page you can see here: <https://www.w3schools.com/html/html5_semantic_elements.asp>
+
+All tags list above are new in HTML5 which means that document can be read by old browsers but layout probably not will
+be displayed as you wish. Of course, you can solve the website for older browsers by using standard ```<div>``` and
+```<span>``` tags but then you must solve it in CSS usually and result might not be grateful.
+
+Using the new HTML5 tags is useful for searching machines too (like google e.g.). It's a more readable by machines and
+your website can be higher in google results probably.
+
+>**Homework**: Edit **index.html** (our main page of restaurant) and encapsulate our header into HTML5 tag for heading,
+links encapsulate to navigation tag and add some nice footer.
+
+### Epilogue of HTML and HTML5
+
+>Spending all of your time learning and memorizing all of the html tags and attributes is not the most efficient use of
+your time. Most job interviews of a web developer will never test this knowledge. What you want to do instead is this:
+Understand how you can use HTML, and how to use online resources to find html tags and attributes that you need. A great
+developer is someone who knows how to find solution to problems and knows where to look. No developer can memorize
+everything, especially when we start learning CSS and Javascript.
+
+## Section 6: CSS
+
+Cascading style sheets

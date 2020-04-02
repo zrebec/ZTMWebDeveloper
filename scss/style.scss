@@ -22,3 +22,8 @@ h1 {
 a, a.visited {
     @include colors-anchor;
 }
+
+.form-text {
+    margin-bottom: 2rem;
+    display: block;
+}
