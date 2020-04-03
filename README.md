@@ -204,9 +204,9 @@ So, the right example of code above should be:
 
 ```html
 <ol>
-    <li>apple</li>
-    <li>banana</li>
-    <li>orange</li>
+    <li>Privacy</li>
+    <li>Security</li>
+    <li>Usability</li>
 <ol>
 ```
 
@@ -214,9 +214,8 @@ So, the right example of code above should be:
 
 ```html
 <ul>
-    <li>apple</li>
-    <li>banana</li>
-    <li>orange</li>
+    <li>We never show your name or birth year without your permit!</li>
+    <li>Your data never be sell to third party site!</li>
 <ul>
 ```
 
@@ -358,7 +357,7 @@ attribute.
 Let's do it small registration form for our page:
 
 ```html
-<form action="main.html" name="registration" method="GET">
+<form action="index.html" name="registration" method="GET">
     <fieldset>
         <legend>Basic information</legend>
         <div>
@@ -395,18 +394,18 @@ Let's do it small registration form for our page:
         <legend>What are you looking?</legend>
         <div>
             <label>I'm looking for: </label>
-            <input type="checkbox" name="date" title="If you're looking date"> Date
-            <input type="checkbox" name="talk" title="Are you interested just about talk?"> Talk
-            <input type="checkbox" name="flirt" title="Do you love flirt?"> Flirt
-            <input type="checkbox" name="unspecified" title="Nobody know what's happens"> We Will see
+            <input type="checkbox" name="looking_for" value="date" title="If you're looking date"> Date
+            <input type="checkbox" name="looking_for" value="talk" title="Are you interested just about talk?"> Talk
+            <input type="checkbox" name="looking_for" value="flirt" title="Do you love flirt?"> Flirt
+            <input type="checkbox" name="looking_for" value="unspecified" title="Nobody know what's happens"> We Will see
         </div>
         <div>
             <label>I'm here for: </label>
-            <input type="checkbox" name="looking_woman" title="Do you want woman?"> Woman
-            <input type="checkbox" name="looking_man" title="Prefer men?"> Man
-            <input type="checkbox" name="looking_couple" title="Are you into couples?"> Couple
-            <input type="checkbox" name="looking_same_gender_couple" title="I want the same gender couple"> Same gender couple
-            <input type="checkbox" name="looking_unknown" title="You can edit this later"> I don't know yet
+            <input type="checkbox" name="seeking_for" value="woman" title="Do you want woman?"> Woman
+            <input type="checkbox" name="seeking_for" value="man" title="Prefer men?"> Man
+            <input type="checkbox" name="seeking_for" value="couple" title="Are you into couples?"> Couple
+            <input type="checkbox" name="seeking_for" value="same_gender_couple" title="I want the same gender couple"> Same gender couple
+            <input type="checkbox" name="seeking_for" value="unknown" title="You can edit this later"> I don't know yet
         </div>
         <div>
             <label>What age range do you looking for?: </label>
@@ -450,28 +449,30 @@ in radio buttons, checkboxes or pick-lists.
 
 So, let fill our form:
 
-![Registration form](https://i.imgur.com/2PORmv8.png "Registration form")
+![Registration form](https://i.imgur.com/2TunkKT.png "Registration form")
 
 After click on **Register** button you can see a so long URL like:
 
 ```output
-registration.html?first_name=First&last_name=Last&email=firstlast%40fakeemail.info&password=strongpassword&repeat_password=strongpassword&birthday=2020-04-02&favorite_drink=vanilla_milkshake&favorite_drink=strawberry_milkshake&recommended_improvements=waffles&visiting=occasionally
+index.html?first_name=Martin&middle_name=&last_name=Fox&email=fakeemail%40fake.info&birthday=2020-04-03&gender=male&looking_for=date&looking_for=flirt&seeking_for=woman&seeking_for=couple&age_range=30&first_visit=on&bio=I+will+write+something+about+me+later
 ```
 
 Let's get started with parsing. The first parameter in any **URL** is after ```?```. All others are after ```&```. If we
 want parse this form, we can make a new line after **?** and then after every **&**.
 
 ```output
-?first_name=First
-&last_name=Last
-&email=firstlast%40fakeemail.info
-&password=strongpassword
-&repeat_password=strongpassword
-&birthday=2020-04-02
-&favorite_drink=vanilla_milkshake
-&favorite_drink=strawberry_milkshake
-&recommended_improvements=waffles
-&visiting=occasionally
+?first_name=Martin
+&middle_name=
+&last_name=Fox
+&email=fakeemail%40fake.info
+&birthday=2020-04-03
+&gender=male
+&looking_for=date
+&looking_for=flirt
+&seeking_for=woman
+&seeking_for=couple
+&age_range=30&first_visit=on
+&bio=I+will+write+something+about+me+later
 ```
 
 As you can see it's easy. Every value what we fill in form are now in our URL with your as well. The most used and
