@@ -18,6 +18,7 @@ industry
 - #womenintech - For the female coders out there
 - #job-hunting - Anything related to finding a job as a developer
 - #code100 - To join a community of students dedicated to code every day for 100 days. You can join anytime.
+- #command-room - Commands for bot like ```!rank``` for view your card.
 
 ## Section 2: How The Internet Works
 
@@ -222,30 +223,24 @@ So, the right example of code above should be:
 or you can combine it!
 
 ```html
-<h1>Welcome to our local restaurant</h1>
-<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+<h1>Our principles</h1>
+<p>See our <em>strong</em> but <strong>simple</strong> principles.</p>
 
-<h2>Our meals with ingredients</h2>
 <ol>
-    <li>Hot Dog</li>
+    <li>Privacy</li>
     <ul>
-        <li>Roll</li>
-        <li>Ketchup</li>
-        <li>Mustard</li>
+        <li>We never show your name or birth year without your permit!</li>
+        <li>Your data never be sell to third party site!</li>
     </ul>
-    <li>Tomato soup</li>
+    <li>Security</li>
     <ul>
-        <li>Bread</li>
-        <li>Garlic</li>
-        <li>Fresh basil</li>
-        <li>Cherry tomatoes</li>
-        <li>Virgin olive oil</li>
+        <li>Always using https connection</li>
+        <li>We are crypt your password with modern security algorithms</li>
     </ul>
-    <li>Drinks</li>
+    <li>Usability</li>
     <ul>
-        <li>Orange juice</li>
-        <li>Vanilla Milkshake</li>
-        <li>Strawberry Milkshake</li>
+        <li>Easy use</li>
+        <li>Modern algorithms to find the opposite</li>
     </ul>
 </ol>
 ```
@@ -256,12 +251,13 @@ or you can combine it!
 
 Closing tags usually closing with backslash and name the tag. But some tags has no closing tag. It's called non-pairing
 tags. For example ```<br>``` which is **break line** or ```<hr>``` for example which is **horizontal line**. So, add
-after the title of your restaurant one **horizontal line**. In **XHTML**
+after the title of your page one **horizontal line**. In **XHTML**
 
 ```html
-<h1>Welcome to our local restaurant</h1>
+<h1>SEE - Social Network</h1>
 <hr>
-<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+<p>Welcome to <strong>new</strong> <em>social network</em>. Our goal is look an ideal partner width
+    minimum information about you.</p>
 ```
 
 In **XHTML** which I mentioned above you must should write this tags like ```<br />``` or ```<hr />```.
@@ -274,14 +270,15 @@ Very important attributes are ```src``` what is source where HTML server can fin
 as ```alt``` attribute. This attributes is important when browser cannot display the image (broken link e.g.), if
 your browser doesn't support images (like **lynx** in linux) and it's important for text-readers as well.
 
-We can try add some free image into our restaurant page
+We can try add some free image into our page
 
 ```html
-<img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
-        width="64" style="float:left;">
-<h1>Welcome to our local restaurant</h1>
+<img src="https://cdn.pixabay.com/photo/2016/03/31/21/20/anthropomorphized-animals-1296354_960_720.png"
+height="64" alt="SEE - Social Network logo" style="float: left; margin-right: 20pt;">
+<h1>SEE - Social Network</h1>
 <hr>
-<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
+<p>Welcome to <strong>new</strong> <em>social network</em>. Our goal is look an ideal partner width
+    minimum information about you.</p>
 ```
 
 I added ```width``` attribute because original logo is too large and ```style``` with ```float``` because I want text
@@ -290,7 +287,7 @@ For the specify size of image you can use **CSS styles** as well or you can add 
 special proportionals of image. But it's enough to leave ```width``` then image is height is corrected for keep image
 proportions.
 
-![local cuisine logo](https://i.imgur.com/bK5H5VA.png "Local cuisine logo")
+![Webpage logo](https://i.imgur.com/OVP14jD.png "Webpage logo")
 
 #### Anchors
 
@@ -303,24 +300,25 @@ Make our logo clickable for return to main page (usually index.html)
 
 ```html
  <a href="index.html">
-    <img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
-    width="64" style="float:left;">
+    <img src="https://cdn.pixabay.com/photo/2016/03/31/21/20/anthropomorphized-animals-1296354_960_720.png"
+    height="64" alt="SEE - Social Network logo" style="float: left; margin-right: 20pt;">
 </a>
-<h1>Welcome to our local restaurant</h1>
+<h1>Welcome to our Social Network</h1>
 ```
 
 You can use **hashtag** if you want link to some part in same document. For example if you have long document like some
 license you can add **hashtags** for to start of page and links to chapters.  
-Example in our restaurant:
+Example in our page:
 
 ```html
-<h1>Welcome to our local restaurant</h1>
+<h1>Welcome to our local Social Network</h1>
 <hr>
-<p>Local cuisine with <em>simple</em> but <strong>quality</strong> meals.</p>
-<a href="#appetizer">Appetizers</a> |
-<a href="#soup">Soups</a> |
-<a href="#drinks">Drinks</a>
-<h2>Our meals with ingredients</h2>
+<p>Welcome to <strong>new</strong> <em>social network</em>. Our goal is look an ideal partner width
+minimum information about you.</p>
+<a href="index.html">Registration</a> |
+<a href="principles.html">Our principles</a> |
+<a href="login.html">Login</a>
+<h2>Please, register today!</h2>
 ```
 
 In anchors you can set ```target``` attribute if you want open the new document in new window for example. Then anchor
@@ -333,7 +331,7 @@ in your directory on server where you have main file (mostly is it ```index.html
 pre-configured) for this file as basic page. Like in our previous example we redirecting our ```index.html``` if you
 click on the logo which is relative path. And our logo in ```img``` tag has ```https://cdn.pixabay.com...``` which is
 absolute path. That means the absolute path contains full path to document including the server and relative path
-doesn't. As homework you can re-write our anchor on logo of restaurant to absolute path. (hint: don't forget to server
+doesn't. As homework you can re-write our anchor on logo of page to absolute path. (hint: don't forget to server
 name and document name.)
 
 #### Exercises and more resources
@@ -357,60 +355,102 @@ If you want to use that some field must be required (not empty) you do it with `
 To select from pickup list you can do it by ```select``` tag. To allow select multiple values you can use ```multiple```
 attribute.
 
-Let's do it small registration form for our restaurant:
+Let's do it small registration form for our page:
 
 ```html
-<form action="/registration.html">
-    <div><label>First Name: </label><input type="text" name="first_name" required></div>
-    <div><label>Last Name: </label><input type="text" name="last_name" required></div>
-    <div><label>Email: </label><input type="email" name="email" required></div>
-    <div><label>Password: </label><input type="password" name="password" required
-        minlength="8"></div>
-    <div><label>Repeat Password: </label><input type="password" name="repeat_password" required
-        minlength="8"></div>
-    <div><label>birthday: </label><input type="date" name="birthday"></div>
-    <div><label>Favorite drinks from our restaurant: </label>
-        <input type="checkbox" name="favorite_drink" value="orange_juice"> Orange juice
-        <input type="checkbox" name="favorite_drink" value="vanilla_milkshake"> Vanilla Milkshake
-        <input type="checkbox" name="favorite_drink" value="strawberry_milkshake"> Strawberry Milkshake
-        <input type="checkbox" name="favorite_drink" value="sparkling_water"> Sparkling water
-        <input type="checkbox" name="favorite_drink" value="clear_water"> Clear water
-    </div>
-    <div><label>What we should add to our menu?</label>
-        <select name="recommended_improvements">
-            <option value="burger">Burger</option>
-            <option value="chinese_soup">Chinese soup</option>
-            <option value="waffles">Waffles</option>
-        </select>
-    </div>
-    </div>
-    <div><label>How often visiting your restaurant? </label>
-        <input type="radio" name="visiting" value="almost_never"> Almost Never
-        <input type="radio" name="visiting" value="occasionally"> Occasionally
-        <input type="radio" name="visiting" value="once_at_week"> Once at week
-        <input type="radio" name="visiting" value="two_or_more_per_week"> Two or more times in week
-    </div>
-    <div><input type="reset" value="Reset"> | <input type="submit" value="Register"></div>
+<form action="main.html" name="registration" method="GET">
+    <fieldset>
+        <legend>Basic information</legend>
+        <div>
+            <label>First Name*: </label>
+            <input type="text" name="first_name" minlength="2" title="Please, start with your First name" required>
+        </div>
+        <div>
+            <label>Middle Name: </label>
+            <input type="text" name="middle_name" title="Middle name if you have">
+        </div>
+        <div>
+            <label>Last Name*: </label>
+            <input type="text" name="last_name" minlength="2" title="Everyone has Last name, right?" required>
+        </div>
+        <div>
+            <label>Email*: </label>
+            <input type="email" name="email" title="What is your primary contact email address please?" required>
+        </div>
+        <div>
+            <label>Birthday*: </label>
+            <input type="date" name="birthday" title="Don't worry. We want your birthday just for better algorithm to find your ideal opposite" required>
+        </div>
+        <div>
+            <label>Gender*: </label>
+            <select name="gender" title="Are you Female, Male or something other?" required>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+    <small>Please note that password is not required because you get temporary password for first login to your email.</small>
+    </fieldset>
+    <fieldset>
+        <legend>What are you looking?</legend>
+        <div>
+            <label>I'm looking for: </label>
+            <input type="checkbox" name="date" title="If you're looking date"> Date
+            <input type="checkbox" name="talk" title="Are you interested just about talk?"> Talk
+            <input type="checkbox" name="flirt" title="Do you love flirt?"> Flirt
+            <input type="checkbox" name="unspecified" title="Nobody know what's happens"> We Will see
+        </div>
+        <div>
+            <label>I'm here for: </label>
+            <input type="checkbox" name="looking_woman" title="Do you want woman?"> Woman
+            <input type="checkbox" name="looking_man" title="Prefer men?"> Man
+            <input type="checkbox" name="looking_couple" title="Are you into couples?"> Couple
+            <input type="checkbox" name="looking_same_gender_couple" title="I want the same gender couple"> Same gender couple
+            <input type="checkbox" name="looking_unknown" title="You can edit this later"> I don't know yet
+        </div>
+        <div>
+            <label>What age range do you looking for?: </label>
+            <input type="number" name="age_range" min="18" max="99" title="Do you looking bunny, your age or someone older?">
+        </div>
+        <div>
+            <label>Are you here first time?: </label>
+            <input type="radio" name="first_visit" title="Yes, I'm first time here"> Yes
+            <input type="radio" name="first_visit" title="No, I used this network before"> No
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Other</legend>
+        <div>
+            <label>Hell about you something: </label>
+            <br>
+            <textarea name="bio" rows="5" cols="30" title="What about your additional bio?"></textarea>
+        </div>
+    </fieldset>
+    <input type="submit" value="Register">
 </form>
 ```
 
 Uh, it's a bit long, yeah? Don't worry. It's easier as it looks. As you can see the most tags in form are ```input```.  
 With ```label``` you can enclosing your field name. It's usually recommended. You can see that **First Name**,
-**Last Name**, **Email** and **Password** are ```required```.  
-Birthday is not required but you can see what age range registering to your restaurant. If value of ```type``` is email,
-browser supporting HTML5 display mini calendar.  
+**Last Name**, **Email** are ```required```.  
+Birthday is required as well because you must know how age do you want to find as opposite. If value of ```type```
+is email, browser supporting HTML5 display mini calendar.  
 ```checkbox``` type with common name and different values allows you to select more values in one section. Instead of
 ```checkbox``` is ```radio``` which allow you only one value.  
-The last used tag is ```select``` for select how our customers wants improve our restaurant. Of course, you can add
+The last used tag is ```select``` for select how our customers wants improve our page. Of course, you can add
 ```multiple``` but we don't want it because we want to see what customers most wants.  
-```input``` with type ```reset``` reset your form and with ```submit``` submit your form.
+```textarea``` allow you write more than one row (```input``` allows only one row text) and that's the reason why we
+used it for bio of person who registering.  
+```input``` with type ```reset``` reset your form and with ```submit``` submit your form.  
+All of 3 separate section encapsulate into ```fieldset``` for better orientation. The ```legend``` tag inside
+```fieldset``` is something like title of group.
 
 >Please remember that ```name``` is very important in each input field. ```value``` is very important as well specially
 in radio buttons, checkboxes or pick-lists.
 
 So, let fill our form:
 
-![Registration form](https://i.imgur.com/N9DcIsy.png "Registration form")
+![Registration form](https://i.imgur.com/2PORmv8.png "Registration form")
 
 After click on **Register** button you can see a so long URL like:
 
@@ -499,7 +539,7 @@ be displayed as you wish. Of course, you can solve the website for older browser
 Using the new HTML5 tags is useful for searching machines too (like google e.g.). It's a more readable by machines and
 your website can be higher in google results probably.
 
->**Homework**: Edit **index.html** (our main page of restaurant) and encapsulate our header into HTML5 tag for heading,
+>**Homework**: Edit **index.html** (our main page of website) and encapsulate our header into HTML5 tag for heading,
 links encapsulate to navigation tag and add some nice footer.
 
 ### Epilogue of HTML and HTML5

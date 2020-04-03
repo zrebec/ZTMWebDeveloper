@@ -4,9 +4,9 @@
 }
 
 @mixin colors-title {
-    color: orange;
+    color: $title-fg;
 }
 
 @mixin colors-anchor {
-    color: orange;
+    color: $anchor-fg;
 }

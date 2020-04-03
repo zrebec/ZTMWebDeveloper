@@ -1,56 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>The Complete Web Developer in 2020: Zero to Mastery</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
-    </head>
-    <body>
-        <header>
-            <a href="index.html">
-                <img src="https://cdn.pixabay.com/photo/2019/06/27/21/14/logo-4303138_960_720.png" alt="Local cuisine logo"
-                width="64" style="float:left;">
-            </a>
-            <h1>Welcome to our local restaurant</h1>
-            <hr>
-            <p>Local cousine with <em>simple</em> but <strong>quality</strong> meals.</p>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>SEE - Social Algorithm</title>
+    <style>
+        div {margin-bottom: 10pt;}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="res/logo.png" height="64" alt="SEE - Social Network logo" style="float: left; margin-right: 20pt;">
+        </a>
+        <h1>SEE - Social Network</h1>
         <nav>
-            <a href="#appetizer">Appetizers</a> |
-            <a href="#soup">Soups</a> |
-            <a href="#drinks">Drinks</a> |
-            <a href="registration.html">Be our employer</a>
+            <a href="index.html">Registration</a> |
+            <a href="principles.html">Our principles</a> |
+            <a href="login.html">Login</a>
         </nav>
-        <main>
-            <h2>Our meals with ingredients</h2>
-            <ol>
-                <li id="appetizer">Hot Dog</li>
-                <ul>
-                    <li>Roll</li>
-                    <li>Ketchup</li>
-                    <li>Mustard</li>
-                </ul>
-                <li id="soup">Tomato soup</li>
-                <ul>
-                    <li>Bread</li>
-                    <li>Garlic</li>
-                    <li>Fresh basil</li>
-                    <li>Cherry tomatoes</li>
-                    <li>Virgin olive oil</li>
-                </ul>
-                <li id="drinks">Drinks</li>
-                <ul>
-                    <li>Orange juice</li>
-                    <li>Vanilla Milkshake</li>
-                    <li>Strawberry Milkshake</li>
-                    <li>Sparkling water</li>
-                    <li>Clear water</li>
-                </ul>
-            </ol>
-        </main>
-        <footer>
-            &copy;2020 - Website created with love!
-        </footer>
-    </body>
+        <hr>
+    </header>
+    <main>
+        <p>Welcome to <strong>new</strong> <em>social network</em>. Our goal is look an ideal partner width
+        minimum information about you.</p>
+        <p>Don't be shy! Your information will be not shown to others without your interest. Our social network has
+        different goals and using different algorithm to find the ideal. You can share your physical preferences,
+        sexual interests or hobbies. Nobody see your name or face photo without confirm.</p>
+        <h2>Please, register today!</h2>
+        <p>If you want using our services, please register at first. First registration is quick. You will improve
+        your profile later.</p>
+        <form action="main.html" name="registration" method="GET">
+            <fieldset>
+                <legend>Basic information</legend>
+                <div>
+                    <label>First Name*: </label>
+                    <input type="text" name="first_name" minlength="2" title="Please, start with your First name" required>
+                </div>
+                <div>
+                    <label>Middle Name: </label>
+                    <input type="text" name="middle_name" title="Middle name if you have">
+                </div>
+                <div>
+                    <label>Last Name*: </label>
+                    <input type="text" name="last_name" minlength="2" title="Everyone has Last name, right?" required>
+                </div>
+                <div>
+                    <label>Email*: </label>
+                    <input type="email" name="email" title="What is your primary contact email address please?" required>
+                </div>
+                <div>
+                    <label>Birthday*: </label>
+                    <input type="date" name="birthday" title="Don't worry. We want your birthday just for better algorithm to find your ideal opposite" required>
+                </div>
+                <div>
+                    <label>Gender*: </label>
+                    <select name="gender" title="Are you Female, Male or something other?" required>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            <small>Please note that password is not required because you get temporary password for first login to your email.</small>
+            </fieldset>
+            <fieldset>
+                <legend>What are you looking?</legend>
+                <div>
+                    <label>I'm looking for: </label>
+                    <input type="checkbox" name="date" title="If you're looking date"> Date
+                    <input type="checkbox" name="talk" title="Are you interested just about talk?"> Talk
+                    <input type="checkbox" name="flirt" title="Do you love flirt?"> Flirt
+                    <input type="checkbox" name="unspecified" title="Nobody know what's happens"> We Will see
+                </div>
+                <div>
+                    <label>I'm here for: </label>
+                    <input type="checkbox" name="looking_woman" title="Do you want woman?"> Woman
+                    <input type="checkbox" name="looking_man" title="Prefer men?"> Man
+                    <input type="checkbox" name="looking_couple" title="Are you into couples?"> Couple
+                    <input type="checkbox" name="looking_same_gender_couple" title="I want the same gender couple"> Same gender couple
+                    <input type="checkbox" name="looking_unknown" title="You can edit this later"> I don't know yet
+                </div>
+                <div>
+                    <label>What age range do you looking for?: </label>
+                    <input type="number" name="age_range" min="18" max="99" title="Do you looking bunny, your age or someone older?">
+                </div>
+                <div>
+                    <label>Are you here first time?: </label>
+                    <input type="radio" name="first_visit" title="Yes, I'm first time here"> Yes
+                    <input type="radio" name="first_visit" title="No, I used this network before"> No
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Other</legend>
+                <div>
+                    <label>Hell about you something: </label>
+                    <br>
+                    <textarea name="bio" rows="5" cols="30" title="What about your additional bio?"></textarea>
+                </div>
+            </fieldset>
+            <input type="submit" value="Register">
+        </form>
+    </main>
+    <footer>
+        &copy;2020 - Web page created with love!
+    </footer>
+</body>
 </html>

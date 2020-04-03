@@ -5,20 +5,20 @@ html, body {
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: "Open Sans", sans-serif;
 }
 
 h1 {
   margin: 0;
   padding: 0;
-  color: orange;
+  color: #a01;
   font-family: "Roboto", sans-serif;
 }
 
 a, a.visited {
-  color: orange;
+  color: blue;
 }
 
 .form-text {
