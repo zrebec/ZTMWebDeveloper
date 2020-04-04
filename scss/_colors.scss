@@ -7,6 +7,11 @@
     color: $title-fg;
 }
 
+@mixin colors-subtitle {
+    color: $subtitle-fg;
+    background-color: $subtitle-bg;
+}
+
 @mixin colors-anchor {
     color: $anchor-fg;
 }

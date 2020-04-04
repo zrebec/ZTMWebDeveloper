@@ -6,4 +6,5 @@
 
 @mixin typography-title {
     font-family: $title-typo;
+    text-transform: uppercase;
 }
