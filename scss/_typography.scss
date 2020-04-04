@@ -8,3 +8,8 @@
     font-family: $title-typo;
     text-transform: uppercase;
 }
+
+@mixin typography-heart {
+    font-size: $heart-typo-size;
+    font-weight: bold;
+}

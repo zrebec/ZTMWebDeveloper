@@ -11,8 +11,13 @@
         "Consolas",
         "Lucida",
         "Roboto",
+        "affchen",
+        "browsersupport",
+        "cheatsheet",
+        "cssref",
         "fakeemail",
         "firstlast",
+        "flexbox",
         "klematis",
         "lightblue",
         "lightcoral",
@@ -20,10 +25,12 @@
         "minlength",
         "monospace",
         "monospaced",
+        "pexels",
         "rgba",
         "strongpassword",
         "subfolder",
         "traceroute",
-        "tracert"
+        "tracert",
+        "tsavo"
     ]
 }

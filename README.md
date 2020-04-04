@@ -1395,8 +1395,10 @@ not only text in your paragraph will flow around the image, but everything under
 
 ### CSS Box Model
 
-At first, look at this picture
+At first, look at this picture:
+
 ![Box Model](https://www.washington.edu/accesscomputing/webd2/student/unit3/images/boxmodel.gif "Box Model")
+
 This image showing box modeling in CSS.
 
 #### Margin
@@ -1436,6 +1438,20 @@ Shows you something like this:
 
 ![Example of ](https://i.imgur.com/3CiiPAo.jpg "Example Of Box Model")
 
+Setup of margin is just ```margin: 5pt;``` or
+
+```css
+margin-top: 5pt;
+margin-right: 2pt;
+margin-bottom: 10pt;
+margin-left: 7pt;
+```
+
+or easier ```margin: 5pt 2pt 10pt 7pt;``` or even shorter like ```margin: 10pt 50pt;``` where first value are from top
+and bottom and second value are from left and right.
+
+if you want different margin from each side (like padding).
+
 #### Border
 
 Border is like skin on your body. Yes, it's very thin but keep your body safe of outer. Border it's the same. In example
@@ -1468,16 +1484,306 @@ padding: 5px;
 or
 
 ```css
-padding-left: 5pt;
 padding-top: 10pt;
+padding-right: 5pt;
 padding-bottom: 15pt;
 padding-left: 1pt;
 ```
+
+or easier by ``padding: 10pt 5pt 15pt 1pt`` (like in border) or even shorter ```padding: 10pt 50pt``` where first value
+are from top and bottom and second value are from left and right.
 
 if you want different paddings of each side. This is small different as border because padding has nothing like color or
 style.
 
 #### Content
 
-So, content is your life... It is your internal organs. Content has no width, height or something else. It's just your
-content. You don't need setup anything here.
+So, content is your life... It is your internal organs. If you want change the size of content, you shall use
+
+```css
+width: 20pt
+height: 20pt;
+```
+
+This causes that your content will be square with 20 points width and height.
+
+>Just remember, margin is outside of border, padding is inside of border
+>Try developer tools in your browser and if you click on your element you will see margin, border, padding and content.
+
+#### Displaying block and inline objects
+
+As you can see, inline objects like ```<span>``` ends where content ends too. Block object like ```<div>``` take all space
+in the same line. If you want shorter ```<div>``` you can set
+
+```css
+div {
+    display: inline-block;
+}
+```
+
+This causes that ```<div>``` ends when content ends too. Of course, you can set ```display: block``` for span. Then span
+will take whole line and will be displayed as block.
+
+The special display modes are ```flex``` and ```grid``` but we explain this later.
+
+**Flex**: <https://css-tricks.com/snippets/css/a-guide-to-flexbox>
+**Grid**: <https://css-tricks.com/snippets/css/complete-guide-grid>
+
+### px vs em vs rem
+
+**px** means pixes are absolute value for size of some element.
+**em** size is inherited from parent element
+**rem** size is inherited from root element
+
+Example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Example</title>
+    <style>
+        html {font-family: monospace; font-size: 10px; color: white}
+        p {background-color: #06a; font-size: 2rem; padding: 5px;}
+        p.rem {background-color: fuchsia; font-size: 1.5rem}
+        span.em {background-color: teal; font-size: 2em }
+    </style>
+</head>
+<body>
+    <section>
+        <p>This is double size from root. That means, this should has 20px.</p>
+        <p class="rem">
+            <span class="em">
+                This font size is inherited from parent element (div). 2em means double size of parent. Parent has
+                1.5rem which means 30px because 15 * 2 = 30.
+            </span>
+            This font size is inherited from root element (body). 2rem double size from root
+            This should be same size as previous paragraph. This is 15px because 10*1.5 = 15.
+        </p>
+    </section>
+</body>
+</html>
+```
+
+you should see something like this picture
+
+![px vs em vs rem size](https://i.imgur.com/NltJ6wD.jpg "px vs em vs rem size")
+
+Well, here is developer console as your best your friend
+
+Computed size for ```<p>```
+![Computed size for p](https://i.imgur.com/8lYxCht.jpg "Computed size for p")
+
+Computed size for ```<p class="rem">```
+![Computed size p.rem](https://i.imgur.com/fMte5Q0.jpg "Computed size p.rem")
+
+Computed size for ```<span class="em">```
+![Computed size span.rem](https://i.imgur.com/P16l9Yu.jpg "Computed size span.em")
+
+>Remember, that root element is ```html``` in all normal HTML5 documents.
+
+## Section 7: Advanced CSS
+
+### Critical Render Path
+
+If you have larger project and download content from external server like fonts via **Google Fonts API**, then your
+own css and your HTML code, this could takes a some time.
+
+Good way how to save a time is a minimizing your CSS. Usually you have many lines in your css file in bigger website.
+
+Many Developer Text editors (like my favorite Visual Studio Code which you can download here
+<https://code.visualstudio.com/Download>) or IDE supports minimizing css files. My favorite for this is plugin for
+Visual Studio Code called "Live Sass Compiler". It's a compiler from scss files into css files (Sass is css
+preprocessor).
+
+If you have access to some minimizer css files in your editor, try online version <https://www.cleancss.com/css-minify/>
+Just paste you full css here and the result will be minimized css which you can save as styles.min.css (always keep your
+original version too) and then change the path in ```<link rel="stylesheet" type="text/css" href="styles.css">``` to
+your minimized css file name.
+
+### FLexBox
+
+Now, we will creating a real website. Full responsive image gallery. As we shows above, you can set to some element
+```display``` property in your css file. We explained ```inline``` and ```block``` or ```inline-block```. I mentioned
+that we have also flexbox which you set by ```display: flex;``` in your css file.
+
+At first, we will need some images and create basic html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Full Responsive Gallery Website</title>
+</head>
+<body>
+    <h1>Life in the Wild</h1>
+    <div class="container">
+        <img src="/gallery/images/" alt="Image 1">
+        <img src="/gallery/images/" alt="Image 2">
+        <img src="/gallery/images/" alt="Image 3">
+        <img src="/gallery/images/" alt="Image 4">
+        <img src="/gallery/images/" alt="Image 5">
+        <img src="/gallery/images/" alt="Image 6">
+        <img src="/gallery/images/" alt="Image7">
+        <img src="/gallery/images/" alt="Image 8">
+        <img src="/gallery/images/" alt="Image 9">
+        <img src="/gallery/images/" alt="Image 10">
+    </div>
+</body>
+</html>
+```
+
+You need a download some images or just use external links in <https://www.pexels.com/> or <https://i.pravatar.cc/800>.
+800 is the size image. **pravatar** always return you the random image.
+
+At 2dn you must create also ```style.css``` sure with this basic content:
+
+```css
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    font-family: fantasy;
+    font-size: 3em;
+    text-align: center;
+}
+
+img {
+    width: 450px;
+    margin: 5px;
+    border: 1px solid black;
+}
+```
+
+As you can see we used class ```.container``` in our ```<div>``` for flex displaying style.
+
+#### Common properties for flexbox container
+
+##### justify-content
+
+Options for ```justify-content``` (horizontal aligns):
+
+```flex-start```: Items align to the left side of the container.  
+```flex-end```: Items align to the right side of the container.  
+```center```: Items align at the center of the container.  
+```space-between```: Items display with equal spacing between them.  
+```space-around```: Items display with equal spacing around them.  
+
+##### align-items
+
+Options for ```align-items``` (vertical aligns):
+
+```flex-start```: Items align to the top of the container.  
+```flex-end```: Items align to the bottom of the container.  
+```center```: Items align at the vertical center of the container.  
+```baseline```: Items display at the baseline of the container.  
+```stretch```: Items are stretched to fit the container.  
+
+##### flex-direction
+
+Options for ```flex-direction```. This CSS property defines the direction items are placed in the container:
+
+```row```: Items are placed the same as the text direction.  
+```row-reverse```: Items are placed opposite to the text direction.  
+```column```: Items are placed top to bottom.  
+```column-reverse```: Items are placed bottom to top.  
+
+##### flex-wrap
+
+```flex-wrap``` property specifies whether the flexible items should wrap or not. Default value is nowrap.
+
+```nowrap```: Every item is fit to a single line.
+```wrap```: Items wrap around to additional lines.
+```wrap-reverse```: Items wrap around to additional lines in reverse.
+
+##### flex-flow
+
+The two properties ```flex-direction``` and ```flex-wrap``` are used so often together that the shorthand property
+```flex-flow``` was created to combine them. This shorthand property accepts the value of one of the two properties
+separated by a space.
+
+##### align-content
+
+Property modifies the behavior of the flex-wrap property. It is similar to align-items, but instead of aligning flex
+items, it aligns flex lines. Default value is ```stretch```.
+
+```flex-start```: Lines are packed at the top of the container.
+```flex-end```: Lines are packed at the bottom of the container.
+```center```: Lines are packed at the vertical center of the container.
+```space-between```: Lines display with equal spacing between them.
+```space-around```: Lines display with equal spacing around them.
+```stretch```: Lines are stretched to fit the container.
+
+```css
+flex-flow: row wrap;
+```
+
+#### Individual properties for flexbox items
+
+##### order
+
+Sometimes reversing the row or column order of a container is not enough. In these cases, we can apply the order
+property to individual items. By default, items have a value of 0, but we can use this property to also set it to a
+positive or negative integer value (-2, -1, 0, 1, 2).
+
+```css
+.specify-picture {order: 2;}
+```
+
+##### align-self
+
+Another property you can apply to individual items is ```align-self```. This property accepts the same values as
+```align-items``` and its value for the specific item.
+
+```css
+.specify-picture {align-self: flex-end;}
+```
+
+If anything is not understood try flexbox cheatsheet where you can find all flexbox properties with illustrations. Just
+visit <https://darekkay.com/dev/flexbox-cheatsheet.html>
+
+You can play with this justify-content and play flexbox game calls flexbox froggy <https://flexboxfroggy.com/> which
+covers flexbox vs bootstrap which will be covered in next step. Please, try this game to become be a prepared for create
+any flexbox content.
+
+### CSS 3
+
+CSS3 is a standard in this time. But some browsers still not have full support. Look at the useful links which helps
+you resolve a problem which css3 feature is supported or what you have an alternatives.
+
+#### Useful links for CSS3
+
+CSS Browser Support Reference: <https://w3schools.com/cssref/css3_browsersupport.asp>  
+Can I use it? <https://caniuse.com>  
+What CSS to prefix? <http://shouldiprefix.com>  
+Autoprefixer CSS online: <https://autoprefixer.github.io>
+
+Try change your css file. Edit ```img``` selector with add ```transition: all 0.5s;``` and add event img:hover (on mouse
+over).
+
+```css
+img {
+    width: 450px;
+    margin: 5px;
+    border: 1px solid black;
+    transition: all 0.5s;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+```
+
+This feature caused that your pictures will scale from ```1.0``` (initial size) to ```1.2``` (about 20% bigger). But
+all not browsers supports this feature. Try this change on all browsers you have. If doesn't work, try search on
+previous link which this feature is supported by your browser and which version (of course, check version of your
+browser).
+

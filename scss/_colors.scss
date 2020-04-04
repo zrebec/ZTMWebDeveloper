@@ -15,3 +15,7 @@
 @mixin colors-anchor {
     color: $anchor-fg;
 }
+
+@mixin colors-heart {
+    color: $heart-fg;
+}
