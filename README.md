@@ -1392,3 +1392,92 @@ property to left side.
 
 But it's recommended after next element set css property to ```clear: both;``` because **float** property caused that
 not only text in your paragraph will flow around the image, but everything under the image finished.
+
+### CSS Box Model
+
+At first, look at this picture
+![Box Model](https://www.washington.edu/accesscomputing/webd2/student/unit3/images/boxmodel.gif "Box Model")
+This image showing box modeling in CSS.
+
+#### Margin
+
+It's indent object including his borders. You can imagine that top of your head and the ceiling. How many space you have
+? That's the margin of you and ceiling. Box objects usually has some margin. If you put ```<p>``` or ```<h1>``` in your
+document, you can see that it's a indented about your another text. Otherwise ```<div>``` has no margin
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Example</title>
+    <style>
+        body {font-family: sans-serif; font-size: 2em;}
+        h1 {background-color: yellow; border: 20px solid red;}
+        span { background-color: lightcoral; }
+        div { background-color: silver; }
+        p { background-color: fuchsia;}
+    </style>
+</head>
+<body>
+    <section>
+        <h1>&lt;h1&gt; is a box object with margin </h1>
+        <span>&lt;span&gt; is inline object</span><br>
+        <div>&lt;div&gt; is box object without margin indent</div>
+        <span>another &lt;span&gt; as proof for paragraph</span><br>
+        <p>&lt;p&gt; is box object with margin indent</p>
+    </section>
+</body>
+</html>
+```
+
+Shows you something like this:
+
+![Example of ](https://i.imgur.com/3CiiPAo.jpg "Example Of Box Model")
+
+#### Border
+
+Border is like skin on your body. Yes, it's very thin but keep your body safe of outer. Border it's the same. In example
+above you can see that I put border to biggest heading. It's space between padding (your fat) and margin (outside).
+
+```css
+border: 1px solid black;
+```
+
+or
+
+```css
+border-width: 5px 2px 7px 1px;
+border-color: yellow;
+border-style: solid;
+```
+
+if you want different border thick of each side. If can imagine a clock starts at 12am and count clockwise (which means
+the first value it top, second is right, 3rd is bottom and last is left border).
+
+#### Padding
+
+Padding is your fat. Keep safe your internal organs inside the body and it's space between it and your skin. Default
+no object who I know has padding. You can setup it by:
+
+```css
+padding: 5px;
+```
+
+or
+
+```css
+padding-left: 5pt;
+padding-top: 10pt;
+padding-bottom: 15pt;
+padding-left: 1pt;
+```
+
+if you want different paddings of each side. This is small different as border because padding has nothing like color or
+style.
+
+#### Content
+
+So, content is your life... It is your internal organs. Content has no width, height or something else. It's just your
+content. You don't need setup anything here.
