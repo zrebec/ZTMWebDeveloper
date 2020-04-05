@@ -52,3 +52,15 @@ span.heart {
     @include colors-heart;
     @include typography-heart;
 }
+
+.btn-primary {
+    background-color: pink;
+    border: 1px solid black;
+    font-weight: bold;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: fuchsia;
+    
+}

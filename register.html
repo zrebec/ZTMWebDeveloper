@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/style.min.css">
     <title>SEE - Registration</title>
     <style>
@@ -32,75 +37,108 @@
         <h2>Please, register today!</h2>
         <p>If you want using our services, please register at first. First registration is quick. You will improve
         your profile later.</p>
-        <form action="register.html" name="registration" method="GET">
+        <form action="register.html" name="registration" method="GET" id="userRegistration">
             <fieldset>
                 <legend>Basic information</legend>
-                <div>
-                    <label>First Name*: </label>
-                    <input type="text" name="first_name" minlength="2" title="Please, start with your First name" required>
+                <div class="form-group">
+                    <label for="userFirstName">First Name*:</label>
+                    <input type="text" class="form-control" id="userFirstName" aria-describedby="userFirstNameHelp" placeholder="Enter First Name" title="Please enter your First Name" required>
+                    <small id="userFirstNameHelp" class="form-text text-muted">Please, start with your First name</small>
                 </div>
-                <div>
-                    <label>Middle Name: </label>
-                    <input type="text" name="middle_name" title="Middle name if you have">
+                <div class="form-group">
+                    <label for="userMiddleName">Middle Name:</label>
+                    <input type="text" class="form-control" id="userMiddleName" aria-describedby="userMiddleNameHelp" placeholder="Enter Middle Name" title="Please enter your Middle Name">
+                    <small id="userMiddleNameHelp" class="form-text text-muted">If you have, you can enter it here</small>
                 </div>
-                <div>
-                    <label>Last Name*: </label>
-                    <input type="text" name="last_name" minlength="2" title="Everyone has Last name, right?" required>
+                <div class="form-group">
+                    <label for="userLastName">Last Name*:</label>
+                    <input type="text" class="form-control" id="userLastName" aria-describedby="userLastNameHelp" placeholder="Enter Last Name" title="Please enter your Last Name" required>
+                    <small id="userLastNameHelp" class="form-text text-muted">Please, start with your Last name</small>
                 </div>
-                <div>
-                    <label>Email*: </label>
-                    <input type="email" name="email" title="What is your primary contact email address please?" required>
+                <div class="form-group">
+                    <label for="userEmail">Email address*</label>
+                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <div>
-                    <label>Birthday*: </label>
-                    <input type="date" name="birthday" title="Don't worry. We want your birthday just for better algorithm to find your ideal opposite" required>
+                <div class="form-group">
+                    <label for="userBirthday">Birthday*</label>
+                    <input type="date" class="form-control" id="userBirthday" aria-describedby="userBirthdayHelp" placeholder="Enter email" required>
+                    <small id="userBirthdayHelp" class="form-text text-muted">We'll never share your birthday with anyone else.</small>
                 </div>
-                <div>
-                    <label>Gender*: </label>
-                    <select name="gender" title="Are you Female, Male or something other?" required>
+                <div class="form-group">
+                <label for="userGender">Gender*</label>
+                    <select class="form-control" id="userGender" title="Are you Female, Male or something other?" required>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
-            <small>Please note that password is not required because you get temporary password for first login to your email.</small>
+                <small>Please note that password is not required because you get temporary password for first login to your email.</small>
             </fieldset>
             <fieldset>
                 <legend>What are you looking?</legend>
-                <div>
-                    <label>I'm looking for: </label>
-                    <input type="checkbox" name="looking_for" value="date" title="If you're looking date"> Date
-                    <input type="checkbox" name="looking_for" value="talk" title="Are you interested just about talk?"> Talk
-                    <input type="checkbox" name="looking_for" value="flirt" title="Do you love flirt?"> Flirt
-                    <input type="checkbox" name="looking_for" value="unspecified" title="Nobody know what's happens"> We Will see
+                <div><label>I'm looking for:</label></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="date" id="userDateInterestDate">
+                    <label class="form-check-label" for="userDateInterest">Date</label>
                 </div>
-                <div>
-                    <label>I'm here for: </label>
-                    <input type="checkbox" name="seeking_for" value="woman" title="Do you want woman?"> Woman
-                    <input type="checkbox" name="seeking_for" value="man" title="Prefer men?"> Man
-                    <input type="checkbox" name="seeking_for" value="couple" title="Are you into couples?"> Couple
-                    <input type="checkbox" name="seeking_for" value="same_gender_couple" title="I want the same gender couple"> Same gender couple
-                    <input type="checkbox" name="seeking_for" value="unknown" title="You can edit this later"> I don't know yet
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="talk" id="userDateInterestTalk">
+                    <label class="form-check-label" for="userDateInterest">Talk</label>
                 </div>
-                <div>
-                    <label>What age range do you looking for?: </label>
-                    <input type="number" name="age_range" min="18" max="99" title="Do you looking bunny, your age or someone older?">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="flirt" id="userDateInterestFlirt">
+                    <label class="form-check-label" for="userDateInterest">Flirt</label>
                 </div>
-                <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="unknown" id="userDateInterestUnknown">
+                    <label class="form-check-label" for="userDateInterest">We Will See</label>
+                </div>
+                <div><label>I'm here for:</label></div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="female" id="userDateGenderFemale">
+                    <label class="form-check-label" for="userDateGender">Female</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="male" id="userDateGenderMale">
+                    <label class="form-check-label" for="userDateGender">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="couple" id="userDateGenderCouple">
+                    <label class="form-check-label" for="userDateGender">Couple</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sameGenderCouple" id="userDateGenderSameGenderCouple">
+                    <label class="form-check-label" for="userDateGender">Same gender couple</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="unknown" id="userDateGenderUnknown">
+                    <label class="form-check-label" for="userDateGender">I don't know yet</label>
+                </div>
+                <div class="form-group">
+                    <label for="userDateAgeRange">What age range do you looking for?</label>
+                    <input type="number" class="form-control" id="userDateAgeRange" min="18" max="99" placeholder="30" title="Do you looking bunny, your age or someone older?">
+                </div>
+                <div class="form-group">
                     <label>Are you here first time?: </label>
-                    <input type="radio" name="first_visit" title="Yes, I'm first time here"> Yes
-                    <input type="radio" name="first_visit" title="No, I used this network before"> No
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="userFirstVisit" id="userFirstVisitYes" value="yes">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="userFirstVisit" id="userFirstVisitNo" value="no">
+                        <label class="form-check-label" for="inlineRadio1">No</label>
+                    </div>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>Other</legend>
-                <div>
-                    <label>Hell about you something: </label>
-                    <br>
-                    <textarea name="bio" rows="5" cols="30" title="What about your additional bio?"></textarea>
-                </div>
+                <div class="form-group">
+                    <label for="userBio">Hell about you something:</label>
+                    <textarea class="form-control" id="userBio" rows="5" id="userBio"></textarea>
+                  </div>
             </fieldset>
-            <input type="submit" value="Register">
+            <button type="submit" class="btn btn-primary" value="Register" id="userRegistrationSubmit">Register</button>
         </form>
     </main>
     <footer>

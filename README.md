@@ -1472,6 +1472,19 @@ border-style: solid;
 if you want different border thick of each side. If can imagine a clock starts at 12am and count clockwise (which means
 the first value it top, second is right, 3rd is bottom and last is left border).
 
+##### Circle borders
+
+If you're interested about circle images try set ```border-radius: 50%``` to class which applying in your image.
+
+```css
+.img-rounded {
+    border-color: blue;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 50%;
+}
+```
+
 #### Padding
 
 Padding is your fat. Keep safe your internal organs inside the body and it's space between it and your skin. Default
@@ -1602,6 +1615,74 @@ If you have access to some minimizer css files in your editor, try online versio
 Just paste you full css here and the result will be minimized css which you can save as styles.min.css (always keep your
 original version too) and then change the path in ```<link rel="stylesheet" type="text/css" href="styles.css">``` to
 your minimized css file name.
+
+### CSS Variables
+
+You can using variables in your css. The advantages of variable is, that you can change some property value at once and
+everything will be changed where variable was used. You can define variable in any selector but I can recommend to use
+```:root``` selector. From this you variable will be accessible anywhere in css file.
+
+Example
+
+```css
+:root {
+    --heading-color: #a00;
+}
+
+h1 {
+    color: var(--heading-color, red);
+}
+```
+
+It's easy. The biggest heading try use variable ```--heading-color``` as value of ```color``` property. If fail, use
+```red``` color instead of (this is called fallback value).
+
+If you are not niggardly to lines in your css you can better improve your fallback to set ```color``` property to
+```red``` before using var. If customer's browsers doesn't know ```var```, you heading will be still red. If knows,
+set color by variable. You know that one of CSS rules that ordering? Last winning, right?
+
+#### CSS variables overriding
+
+As I said, I recommending to use ```:root``` selector. But sometimes this could be counterproductive in some cases.
+But is still solution here. You can reassign variable in class or any other selector.
+
+```css
+:root {
+    --button-color: #06a;
+}
+
+.submit-button {
+    --button-color: green;
+}
+
+.button {
+    color: var(--button-color, blue);
+}
+```
+
+Then just call ```<button class="submit-button button" value="button">Submit</button>``` in your HTML file. Your button
+will be green instead of blue. If you remove ```submit-button``` from class, it will be blue back.
+
+This is useful with combination **media query** ```@media (max-width: 350px)```. Here you can redefine variables for
+small devices.
+
+Remember. Variable cannot be just a color. It could be size, font-style, font-family, almost everything aht that's the
+reason why is useful with **media query** combination. You can set in ```:root``` some sizes and redefine this variables
+using ```@media (max-width: 350px)```.
+
+```css
+:root {
+    --penguin-size: 300px;
+    --penguin-skin: gray;
+}
+
+@media (max-width: 350px) {
+    :root {  
+        --penguin-size: 200px;
+        --penguin-skin: black;
+    }
+}
+```
 
 ### FLexBox
 
@@ -1787,3 +1868,221 @@ all not browsers supports this feature. Try this change on all browsers you have
 previous link which this feature is supported by your browser and which version (of course, check version of your
 browser).
 
+Some properties like ```user-select``` as well are not fully supported in all browsers. In time when I'm writing this
+documentation ```user-select``` is supported in **Microsoft Edge** with ```-ms-``` prefix and with ```-webkit-``` prefix
+in **Safari** for example. This means, that this is a new feature in this browser, it's not fully implemented, but you
+can use it with prefix as experimental feature.
+
+Another great resource is <https://caniuse.com> where you can check if some feature is implemented in current version
+of many browsers (or with what version supports this feature) and also you can see there usage version of that browser
+in market right now.
+
+![Can I use it](https://i.imgur.com/ZZMDAIa.jpg "Can I use it")
+
+As you can see on the picture, CSS3 ```transition``` property is fully supported expect **Opera Mini** in the present.
+
+If you're more interested about about ```transition``` and properties joined with feature like ```scale```, ```rotate```
+, try visit <https://thoughtbot.com/blog/transitions-and-transforms>. It's another great resource.
+
+#### How check is your page is responsive
+
+Many developers has only few browsers on laptop or desktop and probably 1 or 2 cell phones. So, how check you, how your
+website will be images in many devices?
+
+Answer is your browser. For example in **Google Chrome** go to **Developer tools** and you can click on the mobile phone
+in top left corner (it should be icon next for select element which we used above).
+
+>Responsive design should be your priority when you develop website
+
+#### Improve your CSS skills
+
+Try visit <https://www.freecodecamp.org/learn/responsive-web-design/basic-css> and you can training your css skills.
+
+## Section 8: Bootstrap 4, Templates, And Building Your Startup Landing Page
+
+### How to start With Bootstrap
+
+Visit the page <https://getbootstrap.com> and you can click on download and download CSS and JS files and integrate to
+your project or better way is just click to **Get started** button and integrate into your HTML files CSS stylesheet and
+3 JS files.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Bootstrap Landing Page</title>
+</head>
+<body>
+
+    <h1>Content of your landing page will be here</h1>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+```
+
+>As you can see I put JS files to the end of my page!
+
+As you can know, calling external JS file you can put anywhere. To the head or to your body. In this way it's better
+to end of the page because we want functionality load after the content load. If you will put JS files at the start or
+into your heading, user will waiting to load all JS files and then start begin your content. If course, sometimes you
+need load javascript (before page rendering) because page rendering can depends on some JS files. But not in this case.
+
+Now we can add Navigation bar. Just search **Navbar** in **Components** on bootstrap page or visit
+<https://getbootstrap.com/docs/4.4/components/navbar>. Just copy the code from the page and put to your landing page.
+
+Also, add **Jumbotron** and finally *Live Demo* code from **Modal** component. Your code should look like this:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Bootstrap Landing Page</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+```
+
+Yes, it's a bunch of copy-paste code but as you can see you have built responsive website with search button and
+jumbotron panel and modal window (this part is addicted to javascript). And it's fully responsive. And how long it
+takes? 5 or 10 minutes? Of course, now you can customize the website (edit navigation bar, change jumbotron). I show
+you how we can change the button for **Modal Window**.
+
+As you can see button **Launch demo modal** has ```class="btn btn-primary"```. If you click on **Buttons** in Bootstrap
+page in **Components** you can see there are many button classes like *Primary*, *Secondary*, *Warning*, *Light* or
+*Dark*. But I want make my button in pink color. The best way what can do is add next class like ```btn-pink``` and it
+own in your own stylesheet (remember, you stylesheet must be loaded after the Bootstrap stylesheet because as you
+remember, order in CSS is important criteria).
+
+```css
+.btn-pink {
+    background-color: pink;
+    color: black;
+}
+
+.btn-pink:hover {
+    background-color: fuchsia;
+    color: white;
+}
+```
+
+Then change in your HTML
+
+```html
+<button type="button" class="btn btn-primary btn-pink" data-toggle="modal" data-target="#exampleModal">
+    Try Me!
+</button>
+```
+
+As you can see, now is your button is pink and fuchsia when your mouse over on the button. As you can see, border still
+keeps from ```btn-primary```. You can change also border color and many others.
+
+The second way is just *override* class ```btn-primary``` in your stylesheet. Just change what you want. Other
+properties will keep from btn-primary declared before (in Bootstrap css file).
+
+This should be result in big display
+
+![Bootstrap landing Page Big](https://i.imgur.com/6gd52Ct.jpg "Bootstrap landing Page Big")
+
+And it should looks like this in small displays and clicked on *hamburger menu* icon in top right.
+
+![Bootstrap landing Page Small](https://i.imgur.com/Nki2eSe.jpg "Bootstrap landing Page Small")
