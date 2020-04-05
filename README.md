@@ -184,6 +184,7 @@ You can find a many languages for test of your character set for example.
 - ```<mark>``` for highlight text.
 - ```<del>``` is for strikeout the text.
 - ```<q>``` is for "Quotation text".
+- ```<s>``` for stroke the text
 - ```<blockquote cite="link">Quoted text</blockquote>``` for quote citation text
 - ```<bdo dir="rtl">Right to left text</bdo>``` for right to left text orientation
 
