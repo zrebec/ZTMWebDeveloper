@@ -1453,6 +1453,16 @@ and bottom and second value are from left and right.
 
 if you want different margin from each side (like padding).
 
+Width ```margin``` you can also centered some objects e.g. Margin has valid value ```auto```. For example, if you want
+center your page (if you have some **container** ```<div>``` width fixed width like 800px - or any value), you can
+center it very easy:
+
+```css
+.container {
+    margin: 0 auto;
+}
+```
+
 #### Border
 
 Border is like skin on your body. Yes, it's very thin but keep your body safe of outer. Border it's the same. In example
@@ -1836,6 +1846,17 @@ You can play with this justify-content and play flexbox game calls flexbox frogg
 covers flexbox vs bootstrap which will be covered in next step. Please, try this game to become be a prepared for create
 any flexbox content.
 
+#### CSS Positioning
+
+```static``` Default CSS position for element
+```relative``` like ```static``` but you can adjust it with ```top```, ```right```, ```bottom```, ```left```
+```absolute``` Fixed to his parent and you can adjust selector with ```top```, ```right```, ```bottom```, ```left```
+```fixed``` make static position of selector related to root parent. This is useful for menu for example (scrolling on
+the page doesn't affect this). You can adjust it with ```top```, ```right```, ```bottom```, ```left```.
+```float```: TBD
+```sticky```: TBD
+```z-index```: TBD
+
 ### CSS 3
 
 CSS3 is a standard in this time. But some browsers still not have full support. Look at the useful links which helps
@@ -1913,7 +1934,7 @@ your project or better way is just click to **Get started** button and integrate
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Bootstrap Landing Page</title>
 </head>
@@ -1953,7 +1974,7 @@ Also, add **Jumbotron** and finally *Live Demo* code from **Modal** component. Y
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Bootstrap Landing Page</title>
 </head>
@@ -1961,7 +1982,8 @@ Also, add **Jumbotron** and finally *Live Demo* code from **Modal** component. Y
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -1974,9 +1996,8 @@ Also, add **Jumbotron** and finally *Live Demo* code from **Modal** component. Y
                 <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Dropdown</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Another action</a>
