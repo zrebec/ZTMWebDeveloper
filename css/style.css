@@ -53,13 +53,6 @@ span.heart {
   font-weight: bold;
 }
 
-.btn-primary {
-  background-color: pink;
-  border: 1px solid black;
-  font-weight: bold;
-  color: black;
-}
-
-.btn-primary:hover {
-  background-color: fuchsia;
+.nowrap {
+  white-space: nowrap;
 }

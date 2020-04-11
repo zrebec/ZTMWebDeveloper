@@ -2108,3 +2108,391 @@ This should be result in big display
 And it should looks like this in small displays and clicked on *hamburger menu* icon in top right.
 
 ![Bootstrap landing Page Small](https://i.imgur.com/Nki2eSe.jpg "Bootstrap landing Page Small")
+
+### Bootstrap Grid
+
+The most information can be found here <https://getbootstrap.com/docs/4.0/layout/grid>.
+
+You shall have ```container``` class which determine your css grid. The ```row``` define the one row in grid.
+```col-sm``` is a small column in a grid. The basic responsive grid with 3 columns you can determine as:
+
+```html
+<div class="container">
+    <div class="row">
+        <div class="col" style="background-color:mediumvioletred">
+        One of three columns
+        </div>
+        <div class="col" style="background-color: mediumspringgreen;">
+        One of three columns
+        </div>
+        <div class="col" style="background-color: lightblue;">
+        One of three columns
+        </div>
+    </div>
+</div>
+```
+
+>Important! Number of columns of each row is **12** as maximum!
+
+One row can has **12** columns. ```col-sm``` defines small column with auto size. If column wil not fit in one
+row, it will be wraped into more rows. You can try example above and simulate mobile device in your browser developer's
+mode.
+
+If you remove container the row will be on whole your space in block. ```container``` class defines the size according
+to which column is used.  
+For ```col-sm``` ```container``` class has **540px**. The exact sizes you find in description above.
+
+As we explained above the size of row is **12** columns. If you want different sizes of columns you can make it like
+this
+
+```html
+<div class="row">
+    <div class="col col-2" style="background-color:mediumvioletred">
+    One of three columns
+    </div>
+    <div class="col col-6" style="background-color: mediumspringgreen;">
+    One of three columns
+    </div>
+    <div class="col col-4" style="background-color: lightblue;">
+    One of three columns
+</div>
+```
+
+>If your toal will be more than 12, last colulmn will be on next line
+
+If you try this example
+
+```html
+<div class="row">
+    <div class="col col-6 col-md-12" style="background-color:mediumvioletred">
+    One of three columns
+    </div>
+    <div class="col col-3 col-md-6" style="background-color: mediumspringgreen;">
+    One of three columns
+    </div>
+    <div class="col col-4 col-md-6" style="background-color: lightblue;">
+    One of three columns
+    </div>
+</div>
+```
+
+Your result will be that first row will in whole row (space) and second and trird column will be divided at half in
+second row.
+
+>Try change ```col-4``` back to ```col-3``` and you will see that on small dispalys columns will be in row row and
+>in bigger displays it will be divided.
+
+Great grid system is the one of most advantages in **Bootstrap**.
+
+This example divides your row in 2 rows util you screen will be not wider than *720px*.
+
+```html
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6" style="background-color:mediumvioletred">
+        One of three columns
+        </div>
+        <div class="col-6 col-md-3" style="background-color: mediumspringgreen;">
+        One of three columns
+        </div>
+        <div class="col-6 col-md-3" style="background-color: lightblue;">
+        One of three columns
+    </div>
+</div>
+```
+
+My best example is have 3 columns on each row on small displays. 2 columns on medium and 1 column if you have large
+display.
+
+```html
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12 col-md-6 col-lg-4" style="background-color:mediumvioletred">
+        One of three columns
+        </div>
+        <div class="col col-sm-12 col-md-6 col-lg-4" style="background-color: mediumspringgreen;">
+        One of three columns
+        </div>
+        <div class="col col-sm-12 col-md-12 col-lg-4" style="background-color: lightblue;">
+        One of three columns
+        </div>
+    </div>
+</div>
+```
+
+An you can mix with ```mixins``` (CSS pre processor), put columns in flexbox on top, middle or bottom. See on the
+in start of this chapter
+
+### Free resources for Web developer
+
+Short sections. Just look at this resources:
+
+<https://zerotomastery.io/resources/>
+
+The links always changing in time, so keep this to have current view
+
+Just small look on most interested:
+
+- Metatag generator: <https://metatags.io>
+- Lorem pixum (like lorem ipsum but images): <https://picsum.photos>
+- Git branching: <https://learngitbranching.js.org>
+- Logo maker: <https://www.squarespace.com/logo>
+
+### Startup Landing Page
+
+Creating startup landing page with simple email form. Step by step.
+
+At first we will need 3 files. Header image (bigger is better), ```index.html``` file and style ```css``` file.
+
+At first, we should make HTML file ```index.html```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Startup</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <!-- Bootstrap CSS from a CDN. This way you don't have to include the bootstrap file yourself -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Your own stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1 class="text-uppercase">We &hearts; Hares</h1>
+    <button>Find out more</button>
+</body>
+</html>
+```
+
+and css file
+
+```css
+body, html {
+    /* We want cover full width and full height of page */
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+```
+
+Please, look that we have 100% width and height of page because we want full cover display with our page,
+
+**Wait!** We don't have a class ```text-uppercase``` with our stylesheet. How it's possible that we have uppercase
+text? **Bootstrap**! Remember. You should just **remember** or *google* some useful classes in this framework.
+
+Next step is background image. At first look here <https://css-tricks.com/perfect-full-page-background-image>.  
+Add to your ```body, html``` this lines
+
+```css
+background: url(background.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+```
+
+This causes that your background will cover whole page.
+
+>Don't forget to set correct path from your css file to your background file
+
+The next this is edit our ugly button to **Bootstrap** button. Change our button in ```index.html```
+
+```html
+<button class="btn btn-primary">Find out more</button>
+```
+
+Yes, it's nicer but we want it even more nice. So we can add our class and then add it to our button. Please, remember
+that you have almost unlimited classes in your element. So, let's make own css class for button
+
+```css
+.btn-cover {
+    padding: 1rem 2rem;
+    border-radius: 300px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: limegreen;
+    border: 1px solid white;
+}
+
+.btn-cover:hover {
+    background-color: lime;
+    border: 1px solid black;
+    color: black;
+}
+```
+
+We changed color, border and text color in our button. And made it more rounded with ```border-radius```. Do you
+remember explaining css above?
+
+In css file we can add ```<h1>``` element to make it more nice and prepare a ```heart``` class
+
+```css
+h1 {
+    font-weight: bold;
+    color: white;
+    font-size: 3rem;
+}
+
+.heart {
+    color: #a00;
+    font-size: 4rem;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+```
+
+As next we want add small hr over our button. Let's start with this html snippet (just replace button and add
+```<hr>``` above it)
+
+```html
+<hr>
+<button class="btn btn-primary btn-cover">Find out more</button>
+```
+
+Now we must edit ```<hr>``` in our css class
+
+```css
+hr {
+    border: 2px solid white;
+    max-width: 60%;
+}
+```
+
+```max-width``` defines selector's maximum width. And ```border``` is needed because it's only one way how to change
+look of default ```<hr>```.
+
+We made a bigger heading, even bigger heart symbol and made stroke around our heart by ```text-shadow```.
+For more information how ```text-shadow``` works, visit <https://www.w3schools.com/cssref/css3_pr_text-shadow.asp>
+
+> Try make a red heart to assign ```heart``` class as new element ```<span>``` in our heading
+
+Now the page looks much better but we want a center it because this is still ugly. So, how we can do that?
+
+At first, try look at <https://getbootstrap.com/docs/4.3/utilities/flex>
+
+Now you shall wrap your body content into ```<div class="container">``` and into one ```row``` class.
+
+```html
+<div class="container">
+    <div class="row">
+        <h1 class="text-uppercase">We <span class="heart">&hearts;</span> Rabbits, Bunnies and Hares in whole world</h1>
+        <hr>
+        <button class="btn btn-primary btn-cover">Find out more</button>
+    </div>
+</div>
+```
+
+As you can see, we lost ```<hr>``` element. Because row is a one row and ```<hr>``` divider looks like another row.
+We can solve it by divide our heading and rest of document into ```<header>``` element and ```section``` element with
+**Bootstrap** class for text centering.
+
+Look at ```container``` now
+
+```html
+<div class="container">
+        <div class="row">
+        <header class="text-center">
+            <h1 class="text-uppercase">We <span class="heart">&hearts;</span> Rabbits, Bunnies and Hares in whole world</h1>
+        </header>
+        <section class="text-center">
+            <hr>
+            <button class="btn btn-primary btn-cover">Find out more</button>
+        </section>
+    </div>
+</div>
+```
+
+Now, it's still looks strange. Why? Ah... Because we have 3 parts in one row. Do you remember that in CSS grid you have
+exact **12** columns? So, try add next class after ```text-center```. And what class? Of course, ```col-12``` because
+we want separate header as one row and section as the second one.
+
+```html
+<div class="container">
+    ....
+    <header class="text-center col-12">
+    ....
+    <section class="text-center col-12">
+    ....
+</div>
+```
+
+Now, we have almost expected result but our heading, line and button are not in center of the page. How we can solve it?
+Do you remember to **Flexbox**? So, **Bootstrap** has own solution for flexbox utilities. Try visit
+<https://getbootstrap.com/docs/4.4/utilities/flex>. Here you can find many classes for responsive variations.
+
+To activate **flexbox** in **Boostrap** is use to ```d-flex``` class. We must add it to our ```<body>```.
+But it's still not enough. Almost noting happens.
+
+**Probably do you ask why ```<body>``` element? Because our ```container``` is a small ```<div>```. You can inspect our
+```container``` in your browser by developers tools. If you find our ```container``` you can see that browser highlight
+you just small block. And we center it over whole body.
+
+Look at this picture:
+
+![Container div](https://i.imgur.com/7Wuh52V.png "Container div")
+
+So, clear? If you apply ```d-flex``` and ```align-items``` classes just to your container, it's center items only in
+your container which is small with ```static``` position still on top on the page.  
+Your ```<body>``` element should look like this:
+
+```html
+<body class="d-flex align-items-center">
+```
+
+**Remember!** You must set the body with 100% width and height. Otherwise, your ```<body>``` will be still small on
+```<html>``` element and it will be still not centered vertically.
+
+>If you want 100% height container, you can try add **bootstrap** class ```h-100``` into your container div.
+
+The last this which want to do is add buffer (extra space) between our heading and ```section``` element. There are 2
+ways. 1 one you know very well. It's enough add ```margin-bottom``` to your heading, right?  
+Right, this can helps. But 2nd way is create extra buffer div without content. How we can do that? Just add a new div
+with class ```buffer``` and ```col-12``` (because you want occupy whole row) and then create ```buffer``` height in your
+css.
+
+```html
+...
+</header>
+<div class="buffer col-12"></div>
+<section class="text-center col-12">
+...
+```
+
+```css
+height: 4rem
+```
+
+Advantage of 2nd way is that you can are more flexible to adding extra content, set another background color or anything
+else. But choose better way for you. But don't forget to check it on mobile devices via your browser's
+*developer console*.
+
+>As homework you can try add extra buffer between heading and section as you seen above and also add space between
+>line and button via 1st way
+
+### Mailchimp
+
+If you click on the button, nothing happens. But we want to contact us on extra page. In this solution we used
+<https://mailchimp.com>. Mailchimp is an email marketing service. We use free account. With **Sign up** create your
+contact. But it's recommended add real eamil adress in sign up process but not your home address (becuase you can get
+lot of spam if your landing page will be online).
+
+You must sign up, then create *Audience* and *Lading page* via Campaigns and make steps how page wants. After all
+successful steps you should dive URL address like *<https://mailchi.mp/.................>*  It.s Enough to add this
+address to ```<a>``` element around your button
+
+```html
+<a href="https://mailchi.mp/"><button class="btn btn-primary btn-cover">Find out more</button></a>
+```
+
+Then you can control the clicks on the buttons, real subscribers (your audience) and much more.
+
+### Putting your website online
+
+We created a more great pages. But all of them are still offline (on our local address). So, now we much put it online
+because it's the alpha and omega of webpages, isn't?
+
