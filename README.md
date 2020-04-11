@@ -2496,3 +2496,50 @@ Then you can control the clicks on the buttons, real subscribers (your audience)
 We created a more great pages. But all of them are still offline (on our local address). So, now we much put it online
 because it's the alpha and omega of webpages, isn't?
 
+The easiest way is via github. Just create <https://github.com> account, create new repository (must be public), upload
+files and upload files via link in your repository. Then you can add some mark.  
+Then click on **Settings**, scroll down to find **"GitHub Pages"**.  
+You can select *"master"* branch there and create your website URL.  
+Page is automatically refreshed. If you scroll down again go **GitHub Pages** you should see a public link there.
+
+### CSS Fundamentals
+
+#### Anminate.css
+
+Look at <https://daneden.github.io/animate.css/>. It's easy. just download css code, paste in your current css or create
+new css file and link it in HTML and done. Now you can using animating effects for elements like *Bounce*, *Fading*
+effects, *pulse* and many more.
+
+Example:
+
+```html
+<h1 class="animated flip">Once flip text</h1>
+<h2 class="animated infinite bounce">Unlimited bouncing text</h2>
+```
+
+The primary class is ```animated```. ```infinite``` makes that your page will be infinity loop and third class should
+be your effect.
+
+### Bootstrap Templates
+
+You don't to need discover the wheel again. In pages below you can find many free (or paid) web templates which you can
+you in your own projects if you're interested. Just study. It's too long to describe every page. Try download some
+template and run index.html in your browser. Yes, the right is that many templates contains various files which you're
+not understand. But try use only css, html and some js files. You can eliminate images and other static assets and
+replace it by your own. But remember, sometimes it's harder redesign some existing template than create own from scratch
+. You must just find the right balance.
+
+- <https://www.creative-tim.com>
+- <http://www.mashup-template.com/templates.html>
+- <https://cruip.com/>
+- <https://startbootstrap.com/templates>
+- <https://daneden.github.io/animate.css>
+
+## Section 9: CSS Grid + CSS Layout
+
+The one of most important thing in websites are layout and Good User Experience of your page. It's not easy to find
+right balance. In this section will be explain CSS Layout and CSS Grid (which re are used above, but in bootstrap
+context only). This a bit tricky and alchemy. But create a good layout is really half-win of your website.  
+
+>Todays webpages should be responsive mobile-first pages! That's the reason why Bootstrap is using often.
+
