@@ -2535,12 +2535,13 @@ replace it by your own. But remember, sometimes it's harder redesign some existi
 - <https://startbootstrap.com/templates>
 - <https://daneden.github.io/animate.css>
 
+>Todays webpages should be responsive mobile-first pages! That's the reason why Bootstrap is using often.
+
 ## Section 9: CSS Grid + CSS Layout
 
 The one of most important thing in websites are layout and Good User Experience of your page. It's not easy to find
 right balance. In this section will be explain CSS Layout and CSS Grid (which re are used above, but in bootstrap
 context only). This a bit tricky and alchemy. But create a good layout is really half-win of your website.  
 
->Todays webpages should be responsive mobile-first pages! That's the reason why Bootstrap is using often.
-
-Now, here CSS
+>Rememebr! Some sites using ```grid-gap``` css property. This was
+>changed into ```gap```. Read more here: https://developer.mozilla.org/en-US/docs/Web/CSS/gap
