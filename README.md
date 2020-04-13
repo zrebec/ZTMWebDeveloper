@@ -2682,7 +2682,7 @@ In this part we will edit our edit css and add specify class
 Example above causes that that element with ```green``` takes 2 places instead of one. If you open your
 **Developer Console** in your browser, it will be more clear. Look at the image:
 
-![CSS Grid Individual class size](https://i.imgur.com/l5gAYkX.png "CSS Grid Individual class size")
+![CSS Grid Individual class size no gap](https://i.imgur.com/l5gAYkX.png "CSS Grid Individual class size no gap")
 
 As you can see by the lines... The image starts when first vertical dashed line is visible (at start of the page).  
 The second one start when second line starts (ignore end line of first part, in fact it's a third line which you see
@@ -2692,5 +2692,102 @@ better understand.
 ![CSS Grid Individual class size](https://i.imgur.com/MySi1B5.png "CSS Grid Individual class size")
 
 Can you see that? You have to see 3 vertical line on fox. First one is the start image (```grid-column-start: 1```). The
-second one is on half an image (when normal image ends end picture with fox ends on third line where bunny picture
-starts).
+second one is on half an image (when normal image ends| and picture with fox ends on third line where bunny picture
+starts (```grid-column-end:3;```)
+
+This you can write in shorter way
+
+```css
+.green {
+    grid-column: 1/3;
+}
+```
+
+You don't need define it separate on two lines (but it's more readable then). If you want make some image whole to all
+columns, it's not easier way than
+
+```css
+.green {
+    grid-column: 1/-1;
+}
+```
+
+```-1``` causes that element with ```green``` class covers whole **1 row**! Others will start on the second line in your
+grid.
+
+![CSS Grid Individual class size whole row](https://i.imgur.com/Ae7vHhb.png "CSS Grid Individual class size whole row")
+
+Ne negative values be also other than just ```-1```. It could be
+
+```css
+.green {
+    grid-column: 1/-2;
+}
+```
+
+which causes that your ```green``` class takes almost whole row instead of last column. ```-3``` gives you 2 free
+columns.
+
+Of course, you will can this same with rows. You can use ```grid-row-start```, ```grid-row-end``` or just ```grid-row```
+. Change your css
+
+```css
+.green {
+    /*grid-column: 1/-1;*/
+    grid-row: 1/4;
+}
+```
+
+You should have result like this one
+
+![CSS Grid Individual class size row](https://i.imgur.com/OVrZFFs.png "CSS Grid Individual class size row")
+
+This means that you ```green``` class elements takes 4 rows. As you can see, in 2nd column you have 3 pictures instead
+of first where is just one emoji. Because row starts in first horizontal line, second part is is where mouse in second
+column begins, third one is where wolf from second column begins and ends and the end of the page.
+
+If you want to make big cell like image lower, try this:
+
+```css
+grid-area: 1 / 2 / 4 / 6;
+```
+
+**1st value** is like ```grid-row-start```;
+**2st value** is like ```grid-column-start```;
+**3rd value** is like ```grid-row-end```;
+**4th value** is like ```grid-column-end```;
+
+Example above gives you this result in **CSS Garden** game (reference below)
+
+![CSS Garden Grid area](https://i.imgur.com/EHm3r0P.png "CSS Garden Grid area")
+
+Or look at our unicorn
+
+```css
+.container {
+    align-items: center;
+    justify-items: center;
+}
+
+.unicorn {
+    grid-area: 1 / 2 / 4 / 6;
+    /* It looks like */
+
+    /*
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 4;
+    grid-column-end: 6;
+    */
+}
+```
+
+![CSS Grid Unicorn Area](https://i.imgur.com/BcBk2W6.png "CSS Grid Unicorn Area")
+
+>This is not super easy to understand but sometimes you will need. Try play with it
+
+You can see how can looks webpage layout by css grid here: <https://www.cssgridplayground.com>
+Other good source it's by mozilla here: <https://mozilladevelopers.github.io/playground/css-grid>
+
+If you want play with **CSS Grid** and improve your skills (strongly recommended), try game **GRID GARDEN**
+<https://cssgridgarden.com>
