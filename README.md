@@ -2545,3 +2545,152 @@ context only). This a bit tricky and alchemy. But create a good layout is really
 
 >Rememebr! Some sites using ```grid-gap``` css property. This was
 >changed into ```gap```. Read more here: https://developer.mozilla.org/en-US/docs/Web/CSS/gap
+
+### Grid - Container size
+
+At first, you should have some container around your grid. For example:
+
+```html
+<div class="container">
+    <div class="zone green">🦊</div>
+    <div class="zone red">🐰</div>
+    <div class="zone blue">🐸</div>
+    <div class="zone yellow">🦁</div>
+    <div class="zone purple">🐯</div>
+    <div class="zone brown">🐭</div>
+    <div class="zone green">🦄</div>
+    <div class="zone red">🐲</div>
+    <div class="zone blue">🐷</div>
+    <div class="zone yellow">🐺</div>
+    <div class="zone purple">🐼</div>
+    <div class="zone brown">🐻</div>
+</div>
+```
+
+And then define your css:
+
+```css
+display: grid;
+gap: 20px;
+grid-template-columns: 25% 25% 25% 25%;
+```
+
+This define you 3 exact column width 25% width and 20px gap of each cell.  
+But in **CSS Grid** we're using ```fr``` instead of ```%```, ```px```, ```rem```, etc...  
+```fr``` means **fractions** and defines how many cells you want.  
+
+Try edit your css ```grid-template-columns``` to ```1fr 1fr 1fr```. You get 3 cells per row and size of each cell will
+be responsive and dynamic calculates based on your view size.  
+But if you change value of ```grid-template-columns``` to ```1fr 2fr 1fr``` you will see that middle cell will have
+double size. And it's still responsive. You just gave bigger size to middle column. ```2fr``` means double size instead
+of **1 fragment**. ```3fr``` means triple size of base fragment, etc...  
+You can use function ```repeat(<times>, <size>)``` which means how many times you want repeat some size. If you set
+```grid-template-columns``` to ```repeat(2, 2fr) 1fr 3fr``` you will get double sized 2 first cells. 3rd cell will have
+basic width and last one will be triple sized.
+
+
+You can set ```grid-template-rows``` as well of course. This means size of rows. For example if you set
+```grid-template-rows``` to ```1fr 2fr 3fr``` you will see that first row will have default height. The second one
+will be double sized and third one has triple size of course. But all other rows will have **1 fragment** size. You can
+combine with ```repeat(<times>, <size>)``` too. Try set ```grid-template-rows: repeat(2, 5fr) 2fr 1fr;```` and you will
+see result probably. First two rows should has much taller then 3rd and 4th.
+
+>This works for me only if I set values for exact rows which I have.
+
+>Very often you don't know how many rows you will displayed and because ```grid-template-rows``` has reason only with
+>fixed page size (like dashboard) when you will know how many columns and rows you will display.
+
+Now we can explain ```auto``` value in ```grid-template-*``` properties. Try change your fox emoji in your **HTML**
+to ```<div class="zone green">🦊🦊</div>```. Double foxes and then set in your css
+```grid-template-columns: auto repeat(2, 1fr);```. You can see that you lost padding around foxes but each other row
+will have some width like your widest one.
+
+![Auto width css grid](https://i.imgur.com/GPuTUWS.png "Auto width css grid")
+
+If you change ```auto``` to ```1fr``` your foxes will be on 2 rows :) Because width of your cell doesn't been adjusted
+you cell content width.
+
+The next very important feature of **CSS Grid** is ```justify-items```. Default values is ```stretch```. Try edit your
+css this snippet:
+
+```css
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: 300px;
+justify-items: start;
+```
+
+With **Developer console** in your browser you see what happes. Your content will be start in left side your content
+don't be stretched to whole cell. After end of your content cell will continue empty.
+
+
+Next one property is ```align-items``` which is horizontal adjustment of your cell content. Also, default is
+```stretch```.
+
+Next possible values are:
+
+- ```start``` - Align your content of cell to left/top side
+- ```end``` - Align your content of cell to right/bottom side
+- ```center``` - Content will be centered
+- ```baseline``` - If you have different height of content, shorter will be put on baseline on higher.
+- ```flex-start``` - ???
+- ```flex-end``` - ???
+
+To play of this please try different ```font-size``` for one emoji to better understand.
+
+>```justify-items``` or ```align-items``` are not often use in CSS grid. Usually only in specific situations when you
+>have image gallery with different height/width of images. But in most cases ```grid-template-columns``` and
+>```grid-template-rows``` with fragments are enough.
+
+But our grid are still not very responsive because has fixed columns. The best way which you can use for
+```grid-template-columns``` is set value to ```repeat(auto-fill, 300px)```.
+
+Example:
+
+```css
+grid-template-columns: repeat(auto-fill, 300px);
+grid-template-rows: 1fr;
+```
+
+This caused that you have more columns on wider devices and each one will have 300px width(great for responsive gallery)
+, isn't is?  
+The even better is use ```minmax()``` function instead of fixed width. Try
+
+```css
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+grid-template-rows: 1fr;
+```
+
+This causes the minimum width will be ```200px``` and maximum **1 fragment**. On very small devices you will have 200px
+width column on each row because viewport has smaller size than **400px + gap** and because it will be used
+**1 fragment** instead of. On bigger devices you will have more columns.
+
+### Grid - Individual item size
+
+Sometimes adjusting container size only isn't enough. Sometimes you must adjust individual cells.  
+As you seen container in **HTML** snippet, every element has two classes. One common called ```zone``` and then
+individual class like ```yellow``` or ```green```.
+
+In this part we will edit our edit css and add specify class
+
+```css
+.green {
+    grid-column-start: 1;
+    grid-column-end:3;
+}
+```
+
+Example above causes that that element with ```green``` takes 2 places instead of one. If you open your
+**Developer Console** in your browser, it will be more clear. Look at the image:
+
+![CSS Grid Individual class size](https://i.imgur.com/l5gAYkX.png "CSS Grid Individual class size")
+
+As you can see by the lines... The image starts when first vertical dashed line is visible (at start of the page).  
+The second one start when second line starts (ignore end line of first part, in fact it's a third line which you see
+on image). Element ends when third line ends (right) side. Try remove ```gap``` from your css ```container``` class to
+better understand.
+
+![CSS Grid Individual class size](https://i.imgur.com/MySi1B5.png "CSS Grid Individual class size")
+
+Can you see that? You have to see 3 vertical line on fox. First one is the start image (```grid-column-start: 1```). The
+second one is on half an image (when normal image ends end picture with fox ends on third line where bunny picture
+starts).
