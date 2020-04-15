@@ -1695,11 +1695,11 @@ using ```@media (max-width: 350px)```.
 }
 ```
 
-### FLexBox
+### FlexBox
 
 Now, we will creating a real website. Full responsive image gallery. As we shows above, you can set to some element
 ```display``` property in your css file. We explained ```inline``` and ```block``` or ```inline-block```. I mentioned
-that we have also flexbox which you set by ```display: flex;``` in your css file.
+that we have also Flexbox which you set by ```display: flex;``` in your css file.
 
 At first, we will need some images and create basic html
 
@@ -2233,7 +2233,7 @@ The links always changing in time, so keep this to have current view
 
 Just small look on most interested:
 
-- Metatag generator: <https://metatags.io>
+- Meta tag generator: <https://metatags.io>
 - Lorem pixum (like lorem ipsum but images): <https://picsum.photos>
 - Git branching: <https://learngitbranching.js.org>
 - Logo maker: <https://www.squarespace.com/logo>
@@ -2359,11 +2359,11 @@ Now we must edit ```<hr>``` in our css class
 ```css
 hr {
     border: 2px solid white;
-    max-width: 60%;
+    min-width: 60%;
 }
 ```
 
-```max-width``` defines selector's maximum width. And ```border``` is needed because it's only one way how to change
+```min-width``` defines selector's maximum width. And ```border``` is needed because it's only one way how to change
 look of default ```<hr>```.
 
 We made a bigger heading, even bigger heart symbol and made stroke around our heart by ```text-shadow```.
@@ -2478,7 +2478,7 @@ else. But choose better way for you. But don't forget to check it on mobile devi
 
 If you click on the button, nothing happens. But we want to contact us on extra page. In this solution we used
 <https://mailchimp.com>. Mailchimp is an email marketing service. We use free account. With **Sign up** create your
-contact. But it's recommended add real eamil adress in sign up process but not your home address (becuase you can get
+contact. But it's recommended add real email address in sign up process but not your home address (becuase you can get
 lot of spam if your landing page will be online).
 
 You must sign up, then create *Audience* and *Lading page* via Campaigns and make steps how page wants. After all
@@ -2543,10 +2543,10 @@ The one of most important thing in websites are layout and Good User Experience 
 right balance. In this section will be explain CSS Layout and CSS Grid (which re are used above, but in bootstrap
 context only). This a bit tricky and alchemy. But create a good layout is really half-win of your website.  
 
->Rememebr! Some sites using ```grid-gap``` css property. This was
+>Remember! Some sites using ```grid-gap``` css property. This was
 >changed into ```gap```. Read more here: https://developer.mozilla.org/en-US/docs/Web/CSS/gap
 
-### Grid - Container size
+### CSS Grid - Container size
 
 At first, you should have some container around your grid. For example:
 
@@ -2588,17 +2588,41 @@ You can use function ```repeat(<times>, <size>)``` which means how many times yo
 ```grid-template-columns``` to ```repeat(2, 2fr) 1fr 3fr``` you will get double sized 2 first cells. 3rd cell will have
 basic width and last one will be triple sized.
 
-
 You can set ```grid-template-rows``` as well of course. This means size of rows. For example if you set
 ```grid-template-rows``` to ```1fr 2fr 3fr``` you will see that first row will have default height. The second one
 will be double sized and third one has triple size of course. But all other rows will have **1 fragment** size. You can
 combine with ```repeat(<times>, <size>)``` too. Try set ```grid-template-rows: repeat(2, 5fr) 2fr 1fr;```` and you will
 see result probably. First two rows should has much taller then 3rd and 4th.
 
->This works for me only if I set values for exact rows which I have.
+*This works for me only if I set values for exact rows which I have.*
 
 >Very often you don't know how many rows you will displayed and because ```grid-template-rows``` has reason only with
 >fixed page size (like dashboard) when you will know how many columns and rows you will display.
+
+You can combine it by ```grid-template```. Try
+
+```css
+grid-template: 50% 50% / 200px;
+```
+
+Makes you 2 rows each of 50% height and 1 column about 200px width!
+
+Or you can try us example. Try edit your ```container``` class like this:
+
+```css
+.container {
+    display: grid;
+    grid-template: 25% 50% / 500px 250px;
+}
+```
+
+You should see picture like this one
+
+![Grid template sizing](https://i.imgur.com/aaDMa0a.png "Grid template sizing")
+
+Example above cases that first row will have height **25%** of viewport, the second row will have height **50%** of
+viewport and first column will be **500px** height, second one will have just **250px**. This template will have just
+2 columns.
 
 Now we can explain ```auto``` value in ```grid-template-*``` properties. Try change your fox emoji in your **HTML**
 to ```<div class="zone green">🦊🦊</div>```. Double foxes and then set in your css
@@ -2619,9 +2643,8 @@ grid-template-rows: 300px;
 justify-items: start;
 ```
 
-With **Developer console** in your browser you see what happes. Your content will be start in left side your content
+With **Developer console** in your browser you see what happens. Your content will be start in left side your content
 don't be stretched to whole cell. After end of your content cell will continue empty.
-
 
 Next one property is ```align-items``` which is horizontal adjustment of your cell content. Also, default is
 ```stretch```.
@@ -2664,7 +2687,7 @@ This causes the minimum width will be ```200px``` and maximum **1 fragment**. On
 width column on each row because viewport has smaller size than **400px + gap** and because it will be used
 **1 fragment** instead of. On bigger devices you will have more columns.
 
-### Grid - Individual item size
+### CSS Grid - Individual item size
 
 Sometimes adjusting container size only isn't enough. Sometimes you must adjust individual cells.  
 As you seen container in **HTML** snippet, every element has two classes. One common called ```zone``` and then
@@ -2715,7 +2738,26 @@ columns, it's not easier way than
 ```-1``` causes that element with ```green``` class covers whole **1 row**! Others will start on the second line in your
 grid.
 
-![CSS Grid Individual class size whole row](https://i.imgur.com/Ae7vHhb.png "CSS Grid Individual class size whole row")
+![CSS Grid Individual class size whole row](https://i.imgur.com/YXye8rG.png "CSS Grid Individual class size whole row")
+
+As yu can see in image above, fox and 🦊 and 🦄 have same class (```green```). And you have ugly white space between.
+This could be solved very effectively
+
+```css
+.green {
+    grid-column: span 3;
+}
+```
+
+which caused that your ```green```  will be like ```block-inline``` and will behavior like ```<span>``` tag.
+Yes, it takes 3 fragments but all other elements will be follow after green class without line break of element before.
+
+It's better, isn't it?
+
+![CSS Grid Individual class size span](https://i.imgur.com/b0vwpeZ.png "CSS Grid Individual class size span")
+
+Of course, you can do the same with rows too. Not just with columns. like ```grid-row: span 3;``` causes taller image.
+Just try it.
 
 Ne negative values be also other than just ```-1```. It could be
 
@@ -2784,6 +2826,60 @@ Or look at our unicorn
 
 ![CSS Grid Unicorn Area](https://i.imgur.com/BcBk2W6.png "CSS Grid Unicorn Area")
 
+>Remember, you can always combine ```grid-row``` and ```grid-column``` in same container
+
+What if set the green like this?
+
+```css
+.green {
+    grid-column: span 2;
+    grid-row: 1 / 3;
+    align-self: flex-end;
+    justify-self: left;
+}
+```
+
+Yes, this causes next things:
+
+- ```grid-column: span 2;``` class takes 2 fragments without like ```inline``` block
+- ```grid-row: 1 / 3;``` class takes 2 fragments (remember, first starts when upper line of element starts)
+- ```align-self: flex-end;``` horizontally put the content to end of the grid.
+- ```justify-self: left;``` vertically left
+
+Result should look like this
+
+![CSS Grid advanced adjustment](https://i.imgur.com/sM7tMTN.png "CSS Grid advanced adjustment")
+
+🦊 and 🦄 takes 2 fragments in a row and 2 fragments in columns. Vertically content was put on left side and
+horizontally content was put at the end of their space.
+
+And yes, you have white space there becuase your content is just one small emoji. If you remove ```align-self``` and
+```justify-self``` it will be green whole (but not adjusted vertically or horizontally).
+
+### CSS Grid - Ordering and overriding
+
+With CSS Grid you can make much more things. Like ordering some special elements (where selector will be class like
+```unicorn``` class above) or overriding one content with another by ```z-index``` (which is like 3D simulation on 2D
+monitor).
+
+At first we should look to ordering. Default value for ```order``` is **0**. If we set value to **1** for example and
+other elements keeps "as-is", this class will be last because ```1 > 0``` (other elements will have still **0**).
+
+```css
+.unicorn {
+    order: 1;
+}
+```
+
+You should get picture like this one:
+
+![CSS Grid Unicorn last](https://i.imgur.com/7Xv5G0H.png "CSS Grid Unicorn last")
+
+If you change value to **-1** instead of of **1** and other keeps "as-is", unicorn wil be first. Other values than
+**1** or **-1** gives sense if you have more elements (classes) which you want priority and ordering (like if you have
+web album and database picture will some flag "priority", **Node.js** can generate HTML a class ```priority``` for this
+picture and you can set ```.priority {order: -1}``` if you want this picture first).
+
 >This is not super easy to understand but sometimes you will need. Try play with it
 
 You can see how can looks webpage layout by css grid here: <https://www.cssgridplayground.com>
@@ -2791,3 +2887,120 @@ Other good source it's by mozilla here: <https://mozilladevelopers.github.io/pla
 
 If you want play with **CSS Grid** and improve your skills (strongly recommended), try game **GRID GARDEN**
 <https://cssgridgarden.com>
+
+### CSS Grid Layout
+
+>Important! **CSS Grid** is a great change to make a responsive layout of your web page.
+
+At first, really study this cheatsheet: <http://grid.malven.co>. There you have all properties for ```container``` and
+also for children which is your custom classes.
+
+At first create basic html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Layout Master</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./layout.css">
+</head>
+<body>
+    <div class="zone green">Header</div>
+    <div class="zone red">Cover</div>
+    <div class="zone blue">Project Grid</div>
+    <div class="zone yellow">Footer</div>
+</body>
+</html>
+```
+
+and basic css
+
+```css
+.zone {
+    padding:30px 50px;
+    margin:40px 60px;
+    cursor:pointer;
+    display:inline-block;
+    color:#FFF;
+    font-size:2em;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+.zone:hover {
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+ *  Green Background
+ **********************************************************************/
+.green{
+    background: #56B870; /* Old browsers */
+    background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+    background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Red Background
+ **********************************************************************/
+.red{
+    background: #C655BE; /* Old browsers */
+    background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+    background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Yellow Background
+ **********************************************************************/
+.yellow{
+    background: #F3AAAA; /* Old browsers */
+    background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+    background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+}
+
+/***********************************************************************
+ *  Blue Background
+ **********************************************************************/
+.blue{
+    background: #7abcff; /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+    background: linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+}
+```
+
+The part of file should be also images like
+
+- data_storage_2_2.png
+- desktop_analytics_2.png
+- files_2.png
+- monitor_coding_2.png
+- monitor_settings_2.png
+- server_2_2.png
+- server_3.png
+- server_safe_2.png
+- undraw.png
+
+You can find own sources for that.
+
